@@ -22,6 +22,37 @@
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/obfuscator.js"></script>
+	
+	<style>
+		.member-toggle-btn {
+			display: inline-block;
+			font-size: 0.85rem;
+			color: #495057;
+			background-color: #f8f9fa;
+			border: 1px solid #ced4da;
+			padding: 4px 12px;
+			border-radius: 20px;
+			text-decoration: none;
+			transition: all 0.2s ease-in-out;
+			margin-bottom: 10px;
+		}
+		.member-toggle-btn:hover {
+			background-color: #007bff;
+			color: #fff;
+			border-color: #007bff;
+			text-decoration: none;
+		}
+		.member-card-box {
+			background-color: #fdfdfe;
+			border: 1px solid #e2e8f0;
+			border-radius: 8px;
+			padding: 12px 15px;
+			margin-top: 5px;
+			margin-bottom: 15px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+			text-align: left;
+		}
+	</style>
 </head>
 
 <body>
@@ -38,16 +69,19 @@
 						<a class="nav-link" href="index.html">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="yuxuan.html">Yuxuan Zheng</a>
+						<a class="nav-link active" href="/">Lab Member</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active " href="/">Lab Member</a>
+						<a class="nav-link" href="publication.html">Publication</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="publication.html">Publication</a>
+						<a class="nav-link" href="resource.html">Resource</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="contact.html">Contact</a>
+						<a class="nav-link" href="course.html">Course</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Contact</a>
 					</li>
 				</ul>
 			</div>
@@ -67,6 +101,76 @@
 
 	<section>
 		<div class="container section">
+			<div class="row align-items-stretch mb-4">
+				<div class="col col-md-4">
+					<div class="member-portrait">
+						<img src = "https://pic.imgdb.cn/item/651abcf5c458853aef151039.png">
+					</div>
+				</div>
+				
+				<div class="col col-md-8">
+					<h1>YUXUAN ZHENG（郑宇轩）, PH.D.</h1>
+					<h3>PRINCIPAL INVESTIGATOR</h3>
+					<p>Yuxuan Zheng is the principal investigator at Human Phenome Institute / Minhang Hospital in Fudan University. 
+					He started his lab in 2023 to investigate the multi-dimensional regulatory mechanisms of development and disease with the single-cell genomics technology to better understand the origin, development, and progression of diseases. 
+					He completed postdoctoral research at Institute of Microbiology at Chinese Academy of Sciences with Professor George Fu Gao. He received his Ph.D. in Bioinformatics & Cell Biology from Peking University with Professor Fuchou Tang.</p>
+					<a class="member-toggle-btn mb-0" data-toggle="collapse" href="#desc-yuxuan" role="button" aria-expanded="false" aria-controls="desc-yuxuan">Show details</a>
+				</div>
+			</div>
+			
+			<div class="row mb-5">
+				<div class="col-12">
+					<div class="collapse" id="desc-yuxuan">
+						<div class="member-card-box">
+							<br><h2>Work Experience</h2>                                                                     
+							<ul>
+								<li>2025 - Present, Principal Investigator, Minhang Hospital, Fudan University </li>
+								<li>2023 - Present, Principal Investigator, Human Phenome Institute, Fudan University </li>
+								<li>2021 - 2023, Postdoctoral Fellow, Institute of Microbiology, Chinese Academy of Sciences</li>
+							</ul><br>
+
+							<h2>Education</h2>
+							<ul>
+								<li>2016 - 2021, Ph.D., Bioinformatics & Cell Biology, Peking University</li>
+								<li>2017 - 2017, Visiting Student, Electrical Engineering, The University of Hong Kong</li>
+								<li>2012 - 2016, B.S., Management Information Systems, Northeast Forestry University</li>
+								<li>2014 - 2015, Visiting Student, Management Information Systems, National Chung Hsing University</li>
+							</ul><br>
+					
+							<h2>Honors and Awards</h2>
+							<ul>
+								<li>2025, Shanghai Qiyuan Innovation Young Scholar, Shanghai Qiyuan Innovation Foundation</li>
+								<li>2022, The Fellowship of China National Postdoctoral Program for Innovative Talents, Ministry of Human Resources and Social Security of the P. R. China</li>
+								<li>2022, The Fellowship of Young Talents in Beijing, Beijing Association of Science and Technology</li>
+								<li>2021, Excellent Graduate of Beijing, Beijing Department of Education</li>
+								<li>2021, Excellent Graduate of Peking University, Peking University</li>
+								<li>2021, Top 10 Scientific Advances of 2020 in China, Ministry of Science and Technology of the P. R. China</li>
+								<li>2021, Top 10 Progress in China’s Life Sciences in 2020, China Association for Science and Technology</li>
+								<li>2021, Peking University Merit Student of the Year 2020 (only 10 students each year), Peaking University</li>
+								<li>2020 & 2013, National Scholarship, Ministry of Education of the P. R. China</li>
+								<li>2020, Award for Merit Student, Peking University</li>
+								<li>2020, Outstanding Science and Technology Papers, China Association for Science and Technology</li>
+								<li>2019, Sanofi-Cell Research Outstanding Paper Award of 2018, Cell Research Press</li>
+								<li>2019 & 2018, Award for Merit Student and Special Scholarship, Peking University</li>
+								<li>2019, President Scholarship in the Academic Year of 2018-2019, Peking University</li>
+								<li>2017, Award for Academic Excellent and May 4th Scholarship, Peking University</li>
+								<li>2015, Award for Meritorious Winner in American Global Undergraduate Interdisciplinary Contest in Modeling, Consortium for Mathematics and Its Applications of the USA</li>
+								<li>2014, Award for 2nd Prize (Heilongjiang Region) in China Undergraduate Mathematical Contest in Modeling, China Society for Industrial and Applied Mathematics</li>
+								<li>2014, Award for 2nd Prize in Mathematical Modeling Contest of the Three Provinces in Northeast China, Competition Organizing Committee</li>
+								<li>2014, Merit Student of Heilongjiang Province, Heilongjiang Provincial Department of Education</li>
+							</ul><br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<div class="container section">
+			<h1>Current Students</h1>
+			<hr class="mb-5">
+			
 			<div class="row">
 				<div class="col col-md-6 col-lg-4 member">
 					<div class="member-portrait member-portrait--alum">
@@ -74,7 +178,12 @@
 					</div>
 					<div class="member-name">Di Liu（刘迪）</div>
 					<div class="member-title">PhD Candidate</div>
-					<div class="member-desc">I am currently a PhD candidate in Biology at Fudan University, primarily focusing on wet experimental research. I graduated from Institute of Zoology, Chinese Academy of Sciences. Currently engrossed in studying single-cell multi-omics technologies, I aspire to leverage this technology to gain insights into the mechanisms underlying early embryonic development. Apart from academics, I enjoy traveling immensely and aspire to witness every breathtaking landscape in China.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc1" role="button" aria-expanded="false" aria-controls="desc1">Show details</a>
+					<div class="collapse" id="desc1">
+						<div class="member-card-box">
+							<div class="member-desc">I am currently a PhD candidate in Biology at Fudan University, primarily focusing on wet experimental research. I graduated from Institute of Zoology, Chinese Academy of Sciences. Currently engrossed in studying single-cell multi-omics technologies, I aspire to leverage this technology to gain insights into the mechanisms underlying early embryonic development. Apart from academics, I enjoy traveling immensely and aspire to witness every breathtaking landscape in China.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -83,7 +192,12 @@
 					</div>
 					<div class="member-name">Linxin Cheng（成琳鑫）</div>
 					<div class="member-title">PhD Student</div>
-					<div class="member-desc">I am a PhD student at Fudan University. I completed my Master’s degree in Reproductive Medicine at Nanjing Medical University. My research focuses on how reproductive disorders affect offspring development, using wet-lab experiments and single-cell multi-omics technologies to uncover the mechanisms of early embryonic development. Beyond academics, I express my creativity through singing and photography, and find unexpected beauty in daily life through city walks.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc2" role="button" aria-expanded="false" aria-controls="desc2">Show details</a>
+					<div class="collapse" id="desc2">
+						<div class="member-card-box">
+							<div class="member-desc">I am a PhD student at Fudan University. I completed my Master’s degree in Reproductive Medicine at Nanjing Medical University. My research focuses on how reproductive disorders affect offspring development, using wet-lab experiments and single-cell multi-omics technologies to uncover the mechanisms of early embryonic development. Beyond academics, I express my creativity through singing and photography, and find unexpected beauty in daily life through city walks.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -92,7 +206,12 @@
 					</div>
 					<div class="member-name">Haibin Zhu（朱海斌）</div>
 					<div class="member-title">PhD Student</div>
-					<div class="member-desc">I am a PhD student at Fudan University, mainly engaged in wet lab experiments. I was ever an undergraduate student at East China University of Science and Technology. My current research focuses on the transgenerational regulation mechanisms of diseases, aiming to utilize single-cell multi-omics technology to uncover how parental diseases influence offspring development. In my spare time, I enjoy fishing and outdoor exploration, and I hope to one day explore the diverse natural environments around the world.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc3" role="button" aria-expanded="false" aria-controls="desc3">Show details</a>
+					<div class="collapse" id="desc3">
+						<div class="member-card-box">
+							<div class="member-desc">I am a PhD student at Fudan University, mainly engaged in wet lab experiments. I was ever an undergraduate student at East China University of Science and Technology. My current research focuses on the transgenerational regulation mechanisms of diseases, aiming to utilize single-cell multi-omics technology to uncover how parental diseases influence offspring development. In my spare time, I enjoy fishing and outdoor exploration, and I hope to one day explore the diverse natural environments around the world.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -101,7 +220,12 @@
 					</div>
 					<div class="member-name">Boran Yang（杨博然）</div>
 					<div class="member-title">PhD Student</div>
-					<div class="member-desc">I have obtained my Master's degree in Applied Statistics from Harbin Institute of Technology. My current research focuses on the transgenerational epigenetic effects of psychological trauma, aiming to explore the unique regulatory mechanisms by which pathological psychological stimuli impact offspring health through the analysis and modeling of single-cell multi-omics data. Additionally, I have a strong interest in the application of machine learning and artificial intelligence methods to the field of drug structure design. Outside of academics, I enjoy reading whodunits and deriving pleasure from the unexpected plots twists.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc4" role="button" aria-expanded="false" aria-controls="desc4">Show details</a>
+					<div class="collapse" id="desc4">
+						<div class="member-card-box">
+							<div class="member-desc">I have obtained my Master's degree in Applied Statistics from Harbin Institute of Technology. My current research focuses on the transgenerational epigenetic effects of psychological trauma, aiming to explore the unique regulatory mechanisms by which pathological psychological stimuli impact offspring health through the analysis and modeling of single-cell multi-omics data. Additionally, I have a strong interest in the application of machine learning and artificial intelligence methods to the field of drug structure design. Outside of academics, I enjoy reading whodunits and deriving pleasure from the unexpected plots twists.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -110,7 +234,12 @@
 					</div>
 					<div class="member-name">Xiaobei Zhang（张晓蓓）</div>
 					<div class="member-title">PhD Candidate</div>
-					<div class="member-desc">I am a PhD candidate at Fudan University, with experience in flow cytometry–based immunophenotyping. I graduated from Kunming Medical University with a Master’s degree in Medicine. My research focuses on immune remodeling in healthy aging, integrating single-cell omics and flow cytometry to dissect the dynamic changes of the human immune system across the lifespan, identify distinct immune signatures linked to age-related diseases, and explore their underlying regulatory mechanisms. Beyond my academic work, I enjoy traveling and experiencing diverse cultures and landscapes.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc5" role="button" aria-expanded="false" aria-controls="desc5">Show details</a>
+					<div class="collapse" id="desc5">
+						<div class="member-card-box">
+							<div class="member-desc">I am a PhD candidate at Fudan University, with experience in flow cytometry–based immunophenotyping. I graduated from Kunming Medical University with a Master’s degree in Medicine. My research focuses on immune remodeling in healthy aging, integrating single-cell omics and flow cytometry to dissect the dynamic changes of the human immune system across the lifespan, identify distinct immune signatures linked to age-related diseases, and explore their underlying regulatory mechanisms. Beyond my academic work, I enjoy traveling and experiencing diverse cultures and landscapes.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -119,7 +248,12 @@
 					</div>
 					<div class="member-name">Yuru Wang（王誉儒）</div>
 					<div class="member-title">PhD Candidate</div>
-					<div class="member-desc">I am a PhD candidate at the School of Life Sciences, Fudan University. I obtained my Master's degree in Bioinformatics from the University of Iowa. My research experience includes single-cell data analysis, as well as proteomics and metabolomics data analysis. I am particularly interested in computational biology. Outside academia, I enjoy drawing, love animals, and have a strong preference for meat—though hiking is not really my thing.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc6" role="button" aria-expanded="false" aria-controls="desc6">Show details</a>
+					<div class="collapse" id="desc6">
+						<div class="member-card-box">
+							<div class="member-desc">I am a PhD candidate at the School of Life Sciences, Fudan University. I obtained my Master's degree in Bioinformatics from the University of Iowa. My research experience includes single-cell data analysis, as well as proteomics and metabolomics data analysis. I am particularly interested in computational biology. Outside academia, I enjoy drawing, love animals, and have a strong preference for meat—though hiking is not really my thing.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -128,7 +262,26 @@
 					</div>
 					<div class="member-name">Xinran Wang（王心然）</div>
 					<div class="member-title">Master's Student</div>
-					<div class="member-desc">I am a Master's Student at Fudan University, majoring in biology working on the study of single-cell transcriptomics during development. I was ever an undergraduate student at Fudan University. I have utilized both dry and wet laboratory techniques in my past studies, I am interested to explore the multidimensional regulatory mechanisms of development and disease through single-cell omics, aiming to uncover the regulatory mechanisms of individual heterogeneity phenotypes. Outside of work, I enjoy swimming and hoping one day to swim across Changjiang River.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc7" role="button" aria-expanded="false" aria-controls="desc7">Show details</a>
+					<div class="collapse" id="desc7">
+						<div class="member-card-box">
+							<div class="member-desc">I am a Master's Student at Fudan University, majoring in biology working on the study of single-cell transcriptomics during development. I was ever an undergraduate student at Fudan University. I have utilized both dry and wet laboratory techniques in my past studies, I am interested to explore the multidimensional regulatory mechanisms of development and disease through single-cell omics, aiming to uncover the regulatory mechanisms of individual heterogeneity phenotypes. Outside of work, I enjoy swimming and hoping one day to swim across Changjiang River.</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col col-md-6 col-lg-4 member">
+					<div class="member-portrait member-portrait--alum">
+						<img src='image/member/xinyi_geng.jpg'>
+					</div>
+					<div class="member-name">Xinyi Geng（耿昕怡）</div>
+					<div class="member-title">Master's Student</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc8" role="button" aria-expanded="false" aria-controls="desc8">Show details</a>
+					<div class="collapse" id="desc8">
+						<div class="member-card-box">
+							<div class="member-desc">I am a Master’s Student at Fudan University and previously studied Bioinformatics at Huazhong Agricultural University. My research interests lie primarily in bioinformatics and computational biology, with previous experience in spatial transcriptomics data analysis and related algorithm development. I hope to uncover meaningful patterns in complex biological data through computational approaches and provide new perspectives on biological systems. Outside of research, I enjoy reading and painting, which often bring me fresh ideas and inspiration.</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="col col-md-6 col-lg-4 member">
@@ -137,9 +290,21 @@
 					</div>
 					<div class="member-name">Haocong Qian（钱昊聪）</div>
 					<div class="member-title">Research Intern</div>
-					<div class="member-desc">I am an undergraduate student majoring in biology at Fudan University. As a sophomore, I was fortunate enough to be able to study in the lab in my spare time. I have always been interested in scientific research, and I hope that I can improve my scientific research skills and cultivate scientific thinking under the guidance of Zheng Lab. In my spare time, I enjoy traveling, taking photograph love photography and participating in outdoor sports. I hope to travel to different countries and regions in the future.</div>
+					<a class="member-toggle-btn" data-toggle="collapse" href="#desc8" role="button" aria-expanded="false" aria-controls="desc8">Show details</a>
+					<div class="collapse" id="desc8">
+						<div class="member-card-box">
+							<div class="member-desc">I am an undergraduate student majoring in biology at Fudan University. As a sophomore, I was fortunate enough to be able to study in the lab in my spare time. I have always been interested in scientific research, and I hope that I can improve my scientific research skills and cultivate scientific thinking under the guidance of Zheng Lab. In my spare time, I enjoy traveling, taking photograph love photography and participating in outdoor sports. I hope to travel to different countries and regions in the future.</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+	</section>
+	
+	<section>
+		<div class="container section">	
+			<h1>Alumni</h1>
+			<hr class="mb-5">
 		</div>
 	</section>
 </body>
