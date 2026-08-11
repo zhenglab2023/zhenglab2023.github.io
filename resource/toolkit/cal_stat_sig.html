@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cal_stat_sig</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --panel: #ffffff;
+    --text: #1f2a37;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #0f766e;
+    --accent-soft: #e6f4f2;
+    --warn: #b45309;
+    --warn-bg: #fef3c7;
+    --danger: #b91c1c;
+    --danger-bg: #fef2f2;
+    --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 4px 16px rgba(16, 24, 40, .06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px 20px 56px;
+  }
+
+  header { margin-bottom: 24px; }
+  header h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: 0; }
+  header p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .field { display: block; }
+  .field.full { grid-column: 1 / -1; }
+  .field span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  input[type="text"], textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 9px 11px;
+    font: inherit;
+    color: var(--text);
+    background: #fbfcfe;
+    resize: vertical;
+  }
+
+  input[type="text"]:focus, textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: transparent;
+  }
+
+  textarea {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    min-height: 84px;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .seg {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f9fafb;
+  }
+
+  .seg button {
+    border: 0;
+    background: transparent;
+    padding: 9px 13px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    border-right: 1px solid var(--line);
+    white-space: nowrap;
+  }
+
+  .seg button:last-child { border-right: 0; }
+
+  .seg button.active {
+    background: var(--panel);
+    color: var(--accent);
+    box-shadow: inset 0 -2px 0 var(--accent);
+  }
+
+  .primary {
+    margin-left: auto;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 26px;
+    font: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    cursor: pointer;
+  }
+
+  .primary:hover { background: #0b5f58; }
+
+  .error {
+    margin-top: 14px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    background: var(--danger-bg);
+    color: var(--danger);
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    background: #fbfcfe;
+  }
+
+  .stat-card h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 4px 0;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+  }
+
+  .stat-row span { color: var(--muted); }
+  .stat-row strong { font-variant-numeric: tabular-nums; }
+
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .result-box {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+    background: #fbfcfe;
+  }
+
+  .result-box span {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .result-box strong {
+    display: block;
+    font-size: 26px;
+    letter-spacing: 0;
+    line-height: 1.15;
+    word-break: break-word;
+  }
+
+  .result-box small {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .result-box.pvalue strong { color: var(--accent); }
+
+  .detail {
+    margin-top: 16px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+
+  .detail div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 3px 0;
+  }
+
+  .detail span { color: var(--muted); }
+  .detail strong { font-variant-numeric: tabular-nums; }
+
+  footer {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 760px) {
+    .grid, .stat-grid, .result-grid, .detail { grid-template-columns: 1fr; }
+    .primary { margin-left: 0; width: 100%; }
+    .controls { flex-direction: column; align-items: stretch; }
+    .seg { width: 100%; }
+    .seg button { flex: 1; white-space: normal; }
+    .result-box strong { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Calculator for Statistical Significance Test</h1>
+    <p>输入两组数据，选择检验方法与方向，即可得到统计量与 P 值。所有计算均在浏览器本地完成。</p>
+  </header>
+
+  <section class="panel">
+    <div class="grid">
+      <label class="field">
+        <span>组别 1 名称</span>
+        <input type="text" id="name1" value="Ctrl">
+      </label>
+      <label class="field">
+        <span>组别 2 名称</span>
+        <input type="text" id="name2" value="Exp">
+      </label>
+      <label class="field full">
+        <span>组别 1 数据（逗号、空格、换行分隔均可）</span>
+        <textarea id="data1">1588.50, 1399.50, 1487.25</textarea>
+      </label>
+      <label class="field full">
+        <span>组别 2 数据</span>
+        <textarea id="data2">1488.00, 1339.50, 1384.50, 1452.00, 1403.25, 1474.50</textarea>
+      </label>
+    </div>
+
+    <div class="controls">
+      <div class="seg" id="methodSeg">
+        <button type="button" data-method="wilcox" class="active">Wilcoxon 秩和检验</button>
+        <button type="button" data-method="welch">t 检验（Welch）</button>
+        <button type="button" data-method="student">t 检验（方差齐性）</button>
+      </div>
+      <div class="seg" id="altSeg">
+        <button type="button" data-alt="two.sided" class="active">双侧</button>
+        <button type="button" data-alt="greater">单侧 A &gt; B</button>
+        <button type="button" data-alt="less">单侧 A &lt; B</button>
+      </div>
+      <button type="button" class="primary" id="run">计算</button>
+    </div>
+    <div id="error" class="error" hidden></div>
+  </section>
+
+  <section id="summary" class="panel" hidden>
+    <h2>描述统计</h2>
+    <div class="stat-grid" id="statGrid"></div>
+  </section>
+
+  <section id="result" class="panel" hidden>
+    <h2>检验结果</h2>
+    <div class="result-grid">
+      <div class="result-box stat">
+        <span>检验统计量</span>
+        <strong id="rStat">—</strong>
+        <small id="rStatNote"></small>
+      </div>
+      <div class="result-box pvalue">
+        <span>P 值</span>
+        <strong id="rP">—</strong>
+        <small id="rPNote"></small>
+      </div>
+      <div class="result-box method">
+        <span>检验方法</span>
+        <strong id="rMethod">—</strong>
+        <small id="rMethodNote"></small>
+      </div>
+      <div class="result-box concl">
+        <span>结论（α = 0.05）</span>
+        <strong id="rConcl">—</strong>
+        <small id="rConclNote"></small>
+      </div>
+    </div>
+    <div class="detail" id="detail"></div>
+  </section>
+
+  <footer>Wilcoxon 无结值时使用精确分布；含结值或样本较大时使用带连续性校正的正态近似。</footer>
+</div>
+
+<script>
+"use strict";
+
+/* ---------- 基础统计 ---------- */
+function parseData(text) {
+  const parts = String(text).split(/[\s,，;；、]+/).map(s => s.trim()).filter(Boolean);
+  if (!parts.length) return null;
+  const nums = parts.map(Number);
+  if (nums.some(n => !Number.isFinite(n))) return null;
+  return nums;
+}
+
+function summarize(values) {
+  const n = values.length;
+  const sorted = values.slice().sort((a, b) => a - b);
+  const mean = sorted.reduce((s, v) => s + v, 0) / n;
+  const variance = n > 1 ? sorted.reduce((s, v) => s + (v - mean) ** 2, 0) / (n - 1) : 0;
+  const mid = Math.floor(n / 2);
+  const median = n % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  return {
+    n,
+    mean,
+    median,
+    sd: Math.sqrt(variance),
+    min: sorted[0],
+    max: sorted[n - 1]
+  };
+}
+
+/* ---------- 正态与 t 分布 ---------- */
+function erfc(x) {
+  const z = Math.abs(x);
+  const t = 1 / (1 + 0.5 * z);
+  const ans = t * Math.exp(-z * z - 1.26551223 +
+    t * (1.00002368 + t * (0.37409196 + t * (0.09678418 +
+    t * (-0.18628806 + t * (0.27886807 + t * (-1.13520398 +
+    t * (1.48851587 + t * (-0.82215223 + t * 0.17087277)))))))));
+  return x >= 0 ? ans : 2 - ans;
+}
+
+function pnorm(z) {
+  return 0.5 * erfc(-z / Math.SQRT2);
+}
+
+function lgamma(x) {
+  const cof = [
+    76.18009172947146, -86.50532032941677, 24.01409824083091,
+    -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5
+  ];
+  let y = x;
+  let tmp = x + 5.5;
+  tmp -= (x + 0.5) * Math.log(tmp);
+  let ser = 1.000000000190015;
+  for (let j = 0; j < 6; j++) ser += cof[j] / ++y;
+  return -tmp + Math.log(2.5066282746310005 * ser / x);
+}
+
+function betacf(a, b, x) {
+  const MAXIT = 300;
+  const EPS = 3e-14;
+  const FPMIN = 1e-300;
+  const qab = a + b;
+  const qap = a + 1;
+  const qam = a - 1;
+  let c = 1;
+  let d = 1 - qab * x / qap;
+  if (Math.abs(d) < FPMIN) d = FPMIN;
+  d = 1 / d;
+  let h = d;
+  for (let m = 1; m <= MAXIT; m++) {
+    const m2 = 2 * m;
+    let aa = m * (b - m) * x / ((qam + m2) * (a + m2));
+    d = 1 + aa * d;
+    if (Math.abs(d) < FPMIN) d = FPMIN;
+    c = 1 + aa / c;
+    if (Math.abs(c) < FPMIN) c = FPMIN;
+    d = 1 / d;
+    h *= d * c;
+    aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2));
+    d = 1 + aa * d;
+    if (Math.abs(d) < FPMIN) d = FPMIN;
+    c = 1 + aa / c;
+    if (Math.abs(c) < FPMIN) c = FPMIN;
+    d = 1 / d;
+    const del = d * c;
+    h *= del;
+    if (Math.abs(del - 1) < EPS) break;
+  }
+  return h;
+}
+
+function ibeta(a, b, x) {
+  if (x <= 0) return 0;
+  if (x >= 1) return 1;
+  const bt = Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) +
+    a * Math.log(x) + b * Math.log(1 - x));
+  if (x < (a + 1) / (a + b + 2)) return bt * betacf(a, b, x) / a;
+  return 1 - bt * betacf(b, a, 1 - x) / b;
+}
+
+function pt(t, df) {
+  if (!Number.isFinite(t)) return t > 0 ? 1 : 0;
+  const x = df / (df + t * t);
+  const ib = ibeta(df / 2, 0.5, x);
+  return t >= 0 ? 1 - 0.5 * ib : 0.5 * ib;
+}
+
+/* ---------- Wilcoxon 秩和检验 ---------- */
+function combination(n, k) {
+  if (k < 0 || k > n) return 0;
+  k = Math.min(k, n - k);
+  let r = 1;
+  for (let i = 1; i <= k; i++) r = r * (n - k + i) / i;
+  return Math.round(r);
+}
+
+function exactWilcoxonP(W, n1, n2) {
+  const N = n1 + n2;
+  const maxSum = N * (N + 1) / 2;
+  const dp = Array.from({ length: n1 + 1 }, () => new Float64Array(maxSum + 1));
+  dp[0][0] = 1;
+
+  for (let r = 1; r <= N; r++) {
+    for (let k = Math.min(r, n1); k >= 1; k--) {
+      const cur = dp[k];
+      const prev = dp[k - 1];
+      for (let s = maxSum; s >= r; s--) {
+        cur[s] += prev[s - r];
+      }
+    }
+  }
+
+  let leW = 0;
+  let ltW = 0;
+  const row = dp[n1];
+  for (let s = 0; s <= maxSum; s++) {
+    if (s <= W) leW += row[s];
+    if (s <= W - 1) ltW += row[s];
+  }
+  const total = combination(N, n1);
+  const pLess = leW / total;
+  const pGreater = 1 - ltW / total;
+  return { pLess, pGreater, total };
+}
+
+function wilcoxon(a, b, alt) {
+  const n1 = a.length;
+  const n2 = b.length;
+  const N = n1 + n2;
+
+  const combined = [];
+  a.forEach(v => combined.push({ v, g: 0 }));
+  b.forEach(v => combined.push({ v, g: 1 }));
+  combined.sort((x, y) => x.v - y.v);
+
+  const ranks = new Array(N);
+  const ties = [];
+  let i = 0;
+  while (i < N) {
+    let j = i;
+    while (j < N && combined[j].v === combined[i].v) j++;
+    const avg = (i + 1 + j) / 2;
+    for (let k = i; k < j; k++) ranks[k] = avg;
+    if (j - i > 1) ties.push(j - i);
+    i = j;
+  }
+
+  let W = 0;
+  combined.forEach((item, idx) => {
+    if (item.g === 0) W += ranks[idx];
+  });
+
+  const mu = n1 * (N + 1) / 2;
+  const U = W - n1 * (n1 + 1) / 2;
+  let p;
+  let exact = false;
+  let note;
+
+  if (ties.length === 0 && N <= 24) {
+    const { pLess, pGreater } = exactWilcoxonP(W, n1, n2);
+    if (alt === "two.sided") p = Math.min(1, 2 * Math.min(pLess, pGreater));
+    else if (alt === "greater") p = pGreater;
+    else p = pLess;
+    exact = true;
+    note = "无结值，使用精确分布";
+  } else {
+    const tieCorr = ties.reduce((s, t) => s + t * t * t - t, 0);
+    const sigma = Math.sqrt((n1 * n2 / 12) * ((N + 1) - tieCorr / (N * (N - 1))));
+    if (sigma <= 0) {
+      p = alt === "two.sided" ? 1 : 0.5;
+    } else if (alt === "two.sided") {
+      const z = (Math.abs(W - mu) - 0.5) / sigma;
+      p = z > 0 ? 2 * (1 - pnorm(z)) : 1;
+    } else if (alt === "greater") {
+      const z = (W - mu - 0.5) / sigma;
+      p = 1 - pnorm(z);
+    } else {
+      const z = (W - mu + 0.5) / sigma;
+      p = pnorm(z);
+    }
+    p = Math.max(0, Math.min(1, p));
+    note = ties.length ? "含结值，使用带连续性校正的正态近似" : "样本较大，使用带连续性校正的正态近似";
+  }
+
+  return {
+    type: "wilcox",
+    W,
+    U,
+    p,
+    exact,
+    note,
+    n1,
+    n2,
+    mu
+  };
+}
+
+/* ---------- t 检验 ---------- */
+function tTest(a, b, alt, pooled) {
+  const s1 = summarize(a);
+  const s2 = summarize(b);
+  const n1 = s1.n;
+  const n2 = s2.n;
+  const diff = s1.mean - s2.mean;
+  let t;
+  let df;
+  let se;
+
+  if (pooled) {
+    const sp2 = ((n1 - 1) * s1.sd ** 2 + (n2 - 1) * s2.sd ** 2) / (n1 + n2 - 2);
+    se = Math.sqrt(sp2 * (1 / n1 + 1 / n2));
+    df = n1 + n2 - 2;
+  } else {
+    const se1 = s1.sd ** 2 / n1;
+    const se2 = s2.sd ** 2 / n2;
+    se = Math.sqrt(se1 + se2);
+    df = (se1 + se2) ** 2 / (se1 ** 2 / (n1 - 1) + se2 ** 2 / (n2 - 1));
+  }
+
+  t = diff / se;
+  let p;
+  if (!Number.isFinite(se) || se === 0) {
+    p = alt === "two.sided" ? 1 : 0.5;
+  } else if (alt === "two.sided") {
+    p = 2 * (1 - pt(Math.abs(t), df));
+  } else if (alt === "greater") {
+    p = 1 - pt(t, df);
+  } else {
+    p = pt(t, df);
+  }
+  p = Math.max(0, Math.min(1, p));
+
+  return {
+    type: pooled ? "student" : "welch",
+    t,
+    df,
+    p,
+    se,
+    pooled,
+    n1,
+    n2
+  };
+}
+
+/* ---------- 展示 ---------- */
+function fmtNum(x, digits) {
+  if (!Number.isFinite(x)) return "—";
+  return Number(x.toFixed(digits == null ? 4 : digits)).toLocaleString("zh-CN", {
+    maximumFractionDigits: digits == null ? 4 : digits
+  });
+}
+
+function fmtP(p) {
+  if (!Number.isFinite(p)) return "—";
+  if (p < 0.0001) return p.toExponential(4);
+  return p.toFixed(4);
+}
+
+const methodLabels = {
+  wilcox: "Wilcoxon 秩和检验",
+  welch: "t 检验（Welch）",
+  student: "t 检验（方差齐性）"
+};
+
+const altLabels = {
+  "two.sided": "双侧检验",
+  greater: "单侧检验（A > B）",
+  less: "单侧检验（A < B）"
+};
+
+const $ = id => document.getElementById(id);
+let method = "wilcox";
+let alt = "two.sided";
+
+document.querySelectorAll("#methodSeg button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#methodSeg button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    method = btn.dataset.method;
+  });
+});
+
+document.querySelectorAll("#altSeg button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#altSeg button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    alt = btn.dataset.alt;
+  });
+});
+
+function showError(msg) {
+  const box = $("error");
+  box.textContent = msg;
+  box.hidden = false;
+}
+
+function statCard(name, s) {
+  return `
+    <div class="stat-card">
+      <h3>${name}</h3>
+      <div class="stat-row"><span>样本量 n</span><strong>${s.n}</strong></div>
+      <div class="stat-row"><span>均值</span><strong>${fmtNum(s.mean)}</strong></div>
+      <div class="stat-row"><span>中位数</span><strong>${fmtNum(s.median)}</strong></div>
+      <div class="stat-row"><span>标准差 SD</span><strong>${fmtNum(s.sd)}</strong></div>
+      <div class="stat-row"><span>最小值 / 最大值</span><strong>${fmtNum(s.min)} / ${fmtNum(s.max)}</strong></div>
+    </div>`;
+}
+
+function detailRow(label, value) {
+  return `<div><span>${label}</span><strong>${value}</strong></div>`;
+}
+
+function run() {
+  $("error").hidden = true;
+  const name1 = $("name1").value.trim() || "组别 1";
+  const name2 = $("name2").value.trim() || "组别 2";
+  const a = parseData($("data1").value);
+  const b = parseData($("data2").value);
+
+  if (!a || !b) {
+    showError("数据格式有误：请确认两组均为有效数字，并用逗号、空格或换行分隔。");
+    return;
+  }
+  if (a.length < 2 || b.length < 2) {
+    showError("每组至少需要 2 个数据。");
+    return;
+  }
+
+  const s1 = summarize(a);
+  const s2 = summarize(b);
+  let res;
+
+  if (method === "wilcox") {
+    res = wilcoxon(a, b, alt);
+  } else {
+    res = tTest(a, b, alt, method === "student");
+  }
+
+  $("statGrid").innerHTML = statCard(name1, s1) + statCard(name2, s2);
+  $("summary").hidden = false;
+
+  const p = res.p;
+  const significant = p < 0.05;
+  const conclText = significant ? "差异有统计学意义" : "差异无统计学意义";
+
+  if (res.type === "wilcox") {
+    $("rStat").textContent = fmtNum(res.W);
+    $("rStatNote").textContent = `U = ${fmtNum(res.U)}，W 为 ${name1} 的秩和`;
+    $("rMethod").textContent = methodLabels.wilcox;
+    $("rMethodNote").textContent = res.note;
+    $("rConclNote").textContent = altLabels[alt];
+    $("detail").innerHTML =
+      detailRow("组别 1 均值", fmtNum(s1.mean)) +
+      detailRow("组别 2 均值", fmtNum(s2.mean)) +
+      detailRow("均值差值（组1 - 组2）", fmtNum(s1.mean - s2.mean)) +
+      detailRow("组别 1 中位数", fmtNum(s1.median)) +
+      detailRow("组别 2 中位数", fmtNum(s2.median)) +
+      detailRow("样本量", `${s1.n} / ${s2.n}`) +
+      detailRow("秩和 W", fmtNum(res.W)) +
+      detailRow("Mann-Whitney U", fmtNum(res.U)) +
+      detailRow("P 值", fmtP(p)) +
+      detailRow("结论", conclText);
+  } else {
+    $("rStat").textContent = fmtNum(res.t);
+    $("rStatNote").textContent = `自由度 df = ${fmtNum(res.df, 2)}`;
+    $("rMethod").textContent = methodLabels[res.type];
+    $("rMethodNote").textContent = res.pooled ? "合并方差估计" : "Welch-Satterthwaite 校正";
+    $("rConclNote").textContent = altLabels[alt];
+    $("detail").innerHTML =
+      detailRow("组别 1 均值", fmtNum(s1.mean)) +
+      detailRow("组别 2 均值", fmtNum(s2.mean)) +
+      detailRow("均值差值（组1 - 组2）", fmtNum(s1.mean - s2.mean)) +
+      detailRow("组别 1 中位数", fmtNum(s1.median)) +
+      detailRow("组别 2 中位数", fmtNum(s2.median)) +
+      detailRow("样本量", `${s1.n} / ${s2.n}`) +
+      detailRow("t 统计量", fmtNum(res.t)) +
+      detailRow("自由度 df", fmtNum(res.df, 2)) +
+      detailRow("P 值", fmtP(p)) +
+      detailRow("结论", conclText);
+  }
+
+  $("rP").textContent = fmtP(p);
+  $("rPNote").textContent = p < 0.001 ? "P < 0.001" : `P = ${fmtP(p)}`;
+  $("rConcl").textContent = significant ? "拒绝 H₀" : "不拒绝 H₀";
+  $("result").hidden = false;
+}
+
+$("run").addEventListener("click", run);
+run();
+</script>
+</body>
+</html>

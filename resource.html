@@ -22,6 +22,24 @@
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/obfuscator.js"></script>
+	
+	<style>
+		.tool-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 12px;
+			border: 1px solid #eaeaea;
+		}
+		.tool-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+		}
+		.btn-custom {
+			border-radius: 25px;
+			padding: 8px 24px;
+			font-weight: 500;
+			letter-spacing: 0.5px;
+		}
+	</style>
 </head>
 
 <body>
@@ -63,9 +81,33 @@
 				<div class="col col-md-6">
 					<h1>RESOURCE</h1>
 					<p></p>
+					<p>Our resources bring together the tools and data we’ve developed to make complex biological questions more approachable. From curated transcriptomic datasets to user-friendly web interfaces, everything here is shared with the goal of promoting transparency, reproducibility, and cross-laboratory dialogue. Dive in, explore, and let’s advance science together.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<div class="container section">
+			<h1>Toolkit</h1>
+			<hr class="mb-5">
+			
+			<div class="row">
+				<div class="col col-md-6">
 					<div class="row">
-						<div class="col">
-							<h4>Coming soon...</h4>
+						<div class="col-md-8">
+							<div class="card tool-card shadow-sm mb-4">
+								<div class="card-body" style="padding: 1.5rem;">
+									<h4 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">Statistical Calculator</h4>
+									<p class="card-text" style="color: #555; font-size: 0.95rem; margin-bottom: 20px;">
+										Developed by Haibin Zhu. <br>
+										This web-based mini-tool is developed for calculating the statistical significance between two groups using distinct statistical methods.
+									</p>
+									<a href="resource/toolkit/cal_stat_sig.html" target="_blank" class="btn btn-outline-primary btn-custom">
+										Launch Tool &rarr;
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
