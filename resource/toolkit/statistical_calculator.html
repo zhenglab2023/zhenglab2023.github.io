@@ -264,70 +264,70 @@
 <div class="page">
   <header>
     <h1>Statistical Calculator</h1>
-    <p>输入两组数据，选择检验方法与方向，即可得到统计量与 P 值。所有计算均在浏览器本地完成。</p>
+    <p>Input two sets of data, select the test method and direction (e.g., one‑tailed or two‑tailed), and you will obtain the test statistic and P‑value.</p>
   </header>
 
   <section class="panel">
     <div class="grid">
       <label class="field">
-        <span>组别 1 名称</span>
+        <span>Name of group 1</span>
         <input type="text" id="name1" value="Ctrl">
       </label>
       <label class="field">
-        <span>组别 2 名称</span>
+        <span>Name of group 2</span>
         <input type="text" id="name2" value="Exp">
       </label>
       <label class="field full">
-        <span>组别 1 数据（逗号、空格、换行分隔均可）</span>
-        <textarea id="data1">1588.50, 1399.50, 1487.25</textarea>
+        <span>Data of group 1 (separated by commas, spaces, or line breaks)</span>
+        <textarea id="data1">0, 1</textarea>
       </label>
       <label class="field full">
-        <span>组别 2 数据</span>
-        <textarea id="data2">1488.00, 1339.50, 1384.50, 1452.00, 1403.25, 1474.50</textarea>
+        <span>Data of group 2 (separated by commas, spaces, or line breaks)</span>
+        <textarea id="data2">0, 1</textarea>
       </label>
     </div>
 
     <div class="controls">
       <div class="seg" id="methodSeg">
-        <button type="button" data-method="wilcox" class="active">Wilcoxon 秩和检验</button>
-        <button type="button" data-method="welch">t 检验（Welch）</button>
-        <button type="button" data-method="student">t 检验（方差齐性）</button>
+        <button type="button" data-method="wilcox" class="active">Wilcoxon-ranked test</button>
+        <button type="button" data-method="welch">t test (Welch)</button>
+        <button type="button" data-method="student">t-test (Equal variances)</button>
       </div>
       <div class="seg" id="altSeg">
-        <button type="button" data-alt="two.sided" class="active">双侧</button>
-        <button type="button" data-alt="greater">单侧 A &gt; B</button>
-        <button type="button" data-alt="less">单侧 A &lt; B</button>
+        <button type="button" data-alt="two.sided" class="active">Two-tailed</button>
+        <button type="button" data-alt="greater">One-tailed (A &gt; B)</button>
+        <button type="button" data-alt="less">One-tailed (A &lt; B)</button>
       </div>
-      <button type="button" class="primary" id="run">计算</button>
+      <button type="button" class="primary" id="run">Calculate</button>
     </div>
     <div id="error" class="error" hidden></div>
   </section>
 
   <section id="summary" class="panel" hidden>
-    <h2>描述统计</h2>
+    <h2>Description</h2>
     <div class="stat-grid" id="statGrid"></div>
   </section>
 
   <section id="result" class="panel" hidden>
-    <h2>检验结果</h2>
+    <h2>Test result</h2>
     <div class="result-grid">
       <div class="result-box stat">
-        <span>检验统计量</span>
+        <span>Test statistic</span>
         <strong id="rStat">—</strong>
         <small id="rStatNote"></small>
       </div>
       <div class="result-box pvalue">
-        <span>P 值</span>
+        <span>P value</span>
         <strong id="rP">—</strong>
         <small id="rPNote"></small>
       </div>
       <div class="result-box method">
-        <span>检验方法</span>
+        <span>Test method</span>
         <strong id="rMethod">—</strong>
         <small id="rMethodNote"></small>
       </div>
       <div class="result-box concl">
-        <span>结论（α = 0.05）</span>
+        <span>Conclusion (α = 0.05)</span>
         <strong id="rConcl">—</strong>
         <small id="rConclNote"></small>
       </div>
@@ -335,7 +335,7 @@
     <div class="detail" id="detail"></div>
   </section>
 
-  <footer>Wilcoxon 无结值时使用精确分布；含结值或样本较大时使用带连续性校正的正态近似。</footer>
+  <footer>For Wilcoxon tests, the exact distribution is used when there are no ties; when ties are present or the sample size is large, the normal approximation with continuity correction is applied.</footer>
 </div>
 
 <script>
@@ -522,7 +522,7 @@ function wilcoxon(a, b, alt) {
     else if (alt === "greater") p = pGreater;
     else p = pLess;
     exact = true;
-    note = "无结值，使用精确分布";
+    note = "No tied values; exact distribution used（无结值，使用精确分布）";
   } else {
     const tieCorr = ties.reduce((s, t) => s + t * t * t - t, 0);
     const sigma = Math.sqrt((n1 * n2 / 12) * ((N + 1) - tieCorr / (N * (N - 1))));
@@ -539,7 +539,7 @@ function wilcoxon(a, b, alt) {
       p = pnorm(z);
     }
     p = Math.max(0, Math.min(1, p));
-    note = ties.length ? "含结值，使用带连续性校正的正态近似" : "样本较大，使用带连续性校正的正态近似";
+    note = ties.length ? "Includes ties; use normal approximation with continuity correction（含结值，使用带连续性校正的正态近似）" : "Large sample; use normal approximation with continuity correction（样本较大，使用带连续性校正的正态近似）";
   }
 
   return {
@@ -617,15 +617,15 @@ function fmtP(p) {
 }
 
 const methodLabels = {
-  wilcox: "Wilcoxon 秩和检验",
-  welch: "t 检验（Welch）",
-  student: "t 检验（方差齐性）"
+  wilcox: "Wilcoxon rank-sum test",
+  welch: "t-test (Welch)",
+  student: "t-test (Equal variances)"
 };
 
 const altLabels = {
-  "two.sided": "双侧检验",
-  greater: "单侧检验（A > B）",
-  less: "单侧检验（A < B）"
+  "two.sided": "Two-tailed test",
+  greater: "One-tailed test (A > B)",
+  less: "One-tailed test (A < B)"
 };
 
 const $ = id => document.getElementById(id);
@@ -658,11 +658,11 @@ function statCard(name, s) {
   return `
     <div class="stat-card">
       <h3>${name}</h3>
-      <div class="stat-row"><span>样本量 n</span><strong>${s.n}</strong></div>
-      <div class="stat-row"><span>均值</span><strong>${fmtNum(s.mean)}</strong></div>
-      <div class="stat-row"><span>中位数</span><strong>${fmtNum(s.median)}</strong></div>
-      <div class="stat-row"><span>标准差 SD</span><strong>${fmtNum(s.sd)}</strong></div>
-      <div class="stat-row"><span>最小值 / 最大值</span><strong>${fmtNum(s.min)} / ${fmtNum(s.max)}</strong></div>
+      <div class="stat-row"><span>Sample size</span><strong>${s.n}</strong></div>
+      <div class="stat-row"><span>Mean</span><strong>${fmtNum(s.mean)}</strong></div>
+      <div class="stat-row"><span>Median</span><strong>${fmtNum(s.median)}</strong></div>
+      <div class="stat-row"><span>Standard deviation</span><strong>${fmtNum(s.sd)}</strong></div>
+      <div class="stat-row"><span>min / max value</span><strong>${fmtNum(s.min)} / ${fmtNum(s.max)}</strong></div>
     </div>`;
 }
 
@@ -672,17 +672,17 @@ function detailRow(label, value) {
 
 function run() {
   $("error").hidden = true;
-  const name1 = $("name1").value.trim() || "组别 1";
-  const name2 = $("name2").value.trim() || "组别 2";
+  const name1 = $("name1").value.trim() || "Group 1";
+  const name2 = $("name2").value.trim() || "Group 2";
   const a = parseData($("data1").value);
   const b = parseData($("data2").value);
 
   if (!a || !b) {
-    showError("数据格式有误：请确认两组均为有效数字，并用逗号、空格或换行分隔。");
+    showError("Invalid data format: Please ensure both sets consist of valid numbers and are separated by commas, spaces, or line breaks.");
     return;
   }
   if (a.length < 2 || b.length < 2) {
-    showError("每组至少需要 2 个数据。");
+    showError("Each group requires at least two data points.");
     return;
   }
 
@@ -701,47 +701,47 @@ function run() {
 
   const p = res.p;
   const significant = p < 0.05;
-  const conclText = significant ? "差异有统计学意义" : "差异无统计学意义";
+  const conclText = significant ? "The difference is statistically significant" : "The difference is NOT statistically significant";
 
   if (res.type === "wilcox") {
     $("rStat").textContent = fmtNum(res.W);
-    $("rStatNote").textContent = `U = ${fmtNum(res.U)}，W 为 ${name1} 的秩和`;
+    $("rStatNote").textContent = `U = ${fmtNum(res.U)}，W is the rank sum for ${name1}`;
     $("rMethod").textContent = methodLabels.wilcox;
     $("rMethodNote").textContent = res.note;
     $("rConclNote").textContent = altLabels[alt];
     $("detail").innerHTML =
-      detailRow("组别 1 均值", fmtNum(s1.mean)) +
-      detailRow("组别 2 均值", fmtNum(s2.mean)) +
-      detailRow("均值差值（组1 - 组2）", fmtNum(s1.mean - s2.mean)) +
-      detailRow("组别 1 中位数", fmtNum(s1.median)) +
-      detailRow("组别 2 中位数", fmtNum(s2.median)) +
-      detailRow("样本量", `${s1.n} / ${s2.n}`) +
-      detailRow("秩和 W", fmtNum(res.W)) +
+      detailRow("Group 1 mean value", fmtNum(s1.mean)) +
+      detailRow("Group 2 mean value", fmtNum(s2.mean)) +
+      detailRow("Difference in means (Group 1 - Group 2)", fmtNum(s1.mean - s2.mean)) +
+      detailRow("Group 1 median value", fmtNum(s1.median)) +
+      detailRow("Group 2 median value", fmtNum(s2.median)) +
+      detailRow("Sample size", `${s1.n} / ${s2.n}`) +
+      detailRow("Rank sum W", fmtNum(res.W)) +
       detailRow("Mann-Whitney U", fmtNum(res.U)) +
-      detailRow("P 值", fmtP(p)) +
-      detailRow("结论", conclText);
+      detailRow("P value", fmtP(p)) +
+      detailRow("Conclusion", conclText);
   } else {
     $("rStat").textContent = fmtNum(res.t);
-    $("rStatNote").textContent = `自由度 df = ${fmtNum(res.df, 2)}`;
+    $("rStatNote").textContent = `Degrees of freedom (df) = ${fmtNum(res.df, 2)}`;
     $("rMethod").textContent = methodLabels[res.type];
-    $("rMethodNote").textContent = res.pooled ? "合并方差估计" : "Welch-Satterthwaite 校正";
+    $("rMethodNote").textContent = res.pooled ? "Pooled variance estimate" : "Welch-Satterthwaite correction";
     $("rConclNote").textContent = altLabels[alt];
     $("detail").innerHTML =
-      detailRow("组别 1 均值", fmtNum(s1.mean)) +
-      detailRow("组别 2 均值", fmtNum(s2.mean)) +
-      detailRow("均值差值（组1 - 组2）", fmtNum(s1.mean - s2.mean)) +
-      detailRow("组别 1 中位数", fmtNum(s1.median)) +
-      detailRow("组别 2 中位数", fmtNum(s2.median)) +
-      detailRow("样本量", `${s1.n} / ${s2.n}`) +
-      detailRow("t 统计量", fmtNum(res.t)) +
-      detailRow("自由度 df", fmtNum(res.df, 2)) +
-      detailRow("P 值", fmtP(p)) +
-      detailRow("结论", conclText);
+      detailRow("Group 1 mean value", fmtNum(s1.mean)) +
+      detailRow("Group 2 mean value", fmtNum(s2.mean)) +
+      detailRow("Difference in means (Group 1 - Group 2)", fmtNum(s1.mean - s2.mean)) +
+      detailRow("Group 1 median value", fmtNum(s1.median)) +
+      detailRow("Group 2 median value", fmtNum(s2.median)) +
+      detailRow("Sample size", `${s1.n} / ${s2.n}`) +
+      detailRow("t-statistic", fmtNum(res.t)) +
+      detailRow("Degrees of freedom (df)", fmtNum(res.df, 2)) +
+      detailRow("P value", fmtP(p)) +
+      detailRow("Conclusion", conclText);
   }
 
   $("rP").textContent = fmtP(p);
   $("rPNote").textContent = p < 0.001 ? "P < 0.001" : `P = ${fmtP(p)}`;
-  $("rConcl").textContent = significant ? "拒绝 H₀" : "不拒绝 H₀";
+  $("rConcl").textContent = significant ? "Reject H₀" : "Not Reject H₀";
   $("result").hidden = false;
 }
 
