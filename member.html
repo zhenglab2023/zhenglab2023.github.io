@@ -52,42 +52,63 @@
 			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 			text-align: left;
 		}
+		
+		.sticky-glass-nav {
+			position: sticky;
+			top: 0;
+			z-index: 1030;
+			background-color: rgba(226, 240, 255, 0.6);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px); 
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+		}
+		
+		.sticky-glass-nav .navbar {
+			padding-top: 20px; 
+			padding-bottom: 20px;
+		}
+		.navbar-brand img {
+			max-height: 40px;
+			width: auto;
+		}
 	</style>
 </head>
 
 <body>
-    <div class="container">
-		<nav class="navbar navbar-expand-md navbar-light">  
-			<a class="navbar-brand" href="/"><img src="https://pic.imgdb.cn/item/6522acb2c458853aeff9fca0.png"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+	<div class="sticky-glass-nav">
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light">  
+				<a class="navbar-brand" href="/"><img src="https://pic.imgdb.cn/item/6522acb2c458853aeff9fca0.png"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-			<div class="collapse navbar-collapse" id="mainNavbar">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="index.html">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="/">Lab Member</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="publication.html">Publication</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="resource.html">Resource</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="course.html">Course</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contact.html">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-    </div>
-
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/">Member</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="publication.html">Publication</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="resource.html">Resource</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="course.html">Course</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	
 	<section>
 		<div class="container section">
 			<div class="row">

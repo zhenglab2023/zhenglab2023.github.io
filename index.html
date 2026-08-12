@@ -22,42 +22,64 @@
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/obfuscator.js"></script>
+	
+	<style>
+		.sticky-glass-nav {
+			position: sticky;
+			top: 0;
+			z-index: 1030;
+			background-color: rgba(226, 240, 255, 0.6);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px); 
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+		}
+		
+		.sticky-glass-nav .navbar {
+			padding-top: 20px; 
+			padding-bottom: 20px;
+		}
+		.navbar-brand img {
+			max-height: 40px;
+			width: auto;
+		}
+	</style>
 </head>
 	
 <body>
-	<!-- Navigation bar -->
-	<div class="container">
-		<nav class="navbar navbar-expand-md navbar-light">
-			<a class="navbar-brand" href="https://hupi.fudan.edu.cn/"><img src="image/logo-hupi.png"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-				
-			<div class="collapse navbar-collapse" id="mainNavbar">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link active" href="/">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="member.html">Lab Member</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="publication.html">Publication</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="resource.html">Resource</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="course.html">Course</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contact.html">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+	<div class="sticky-glass-nav">
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light">
+				<a class="navbar-brand" href="https://hupi.fudan.edu.cn/"><img src="image/logo-hupi.png"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+					
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="member.html">Member</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="publication.html">Publication</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="resource.html">Resource</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="course.html">Course</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	</div>
-		
+	
 	<div class="container-fluid iw_section" id="sectionj2veioho"> 
 		<div class="row iw_row iw_stretch" id="rowj2veiohp">
 			<div class="iw_columns col-lg-12" id="colj2veiohq"> 

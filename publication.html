@@ -22,40 +22,96 @@
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/obfuscator.js"></script>
+	
+	<style>
+		.sticky-glass-nav {
+			position: sticky;
+			top: 0;
+			z-index: 1030;
+			background-color: rgba(226, 240, 255, 0.6);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px); 
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+		}
+		
+		.sticky-glass-nav .navbar {
+			padding-top: 20px; 
+			padding-bottom: 20px;
+		}
+		.navbar-brand img {
+			max-height: 40px;
+			width: auto;
+		}
+		
+		.pub-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 12px;
+			border: 1px solid #eaeaea;
+			background-color: #ffffff;
+		}
+		.pub-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+		}
+		.pub-card .row {
+			align-items: flex-start !important;
+		}
+		.pub-card .col-md-3 {
+			align-self: flex-start;
+			padding-top: 0.2rem; 
+		}
+		.btn-custom {
+			border-radius: 20px;
+			padding: 6px 18px;
+			font-weight: 500;
+			font-size: 0.9rem;
+			letter-spacing: 0.3px;
+			white-space: nowrap;
+		}
+		.pub-details-list {
+			padding-left: 18px;
+			margin-top: 8px;
+			margin-bottom: 0;
+			font-size: 0.9rem;
+			color: #666;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="container">
-		<nav class="navbar navbar-expand-md navbar-light">  
-			<a class="navbar-brand" href="/"><img src="https://pic.imgdb.cn/item/6522acb2c458853aeff9fca0.png"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+	<div class="sticky-glass-nav">
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light">  
+				<a class="navbar-brand" href="/"><img src="https://pic.imgdb.cn/item/6522acb2c458853aeff9fca0.png"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-			<div class="collapse navbar-collapse" id="mainNavbar">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="index.html">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="member.html">Lab Member</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="/">Publication</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="resource.html">Resource</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="course.html">Course</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contact.html">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-    </div>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="member.html">Member</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/">Publication</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="resource.html">Resource</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="course.html">Course</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
 	
 	<section>
 		<div class="container section">
@@ -80,55 +136,61 @@
 					<h2>2026</h2>
 				</div>
 				<div class="col-12 col-md-10">
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>[Review] Phage endolysins as alternative antimicrobials: mechanisms, clinical progress, and emerging resistance frameworks</strong><br>
-								<i>Frontiers in Microbiology</i>
-								<div class="pub-details">
-									Haocong Qian<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u>*<br>
-									2026 17: 1762768<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>[Review] Phage endolysins as alternative antimicrobials: mechanisms, clinical progress, and emerging resistance frameworks</strong><br>
+									<i>Frontiers in Microbiology</i>
+									<div class="pub-details">
+										Haocong Qian<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u>*<br>
+										2026 17: 1762768
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1762768/full" target="_blank" class="btn btn-outline-primary btn-sm btn-custom">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1762768/full">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Single-cell sequencing reveals dynamic immune features of paraneoplastic pemphigus in a patient with follicular lymphoma</strong><br>
-								<i>Frontiers in Immunology</i>
-								<div class="pub-details">
-									Rong Wei<sup>#</sup>, Bochao Liu<sup>#</sup>, Yun Liu<sup>#</sup>, Wenjing Li, Zhiguo Chen, Jin Lu, <u><strong>Yuxuan Zheng</strong></u>*, Shenmiao Yang*<br>
-									2026 17: 1733718<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Single-cell sequencing reveals dynamic immune features of paraneoplastic pemphigus in a patient with follicular lymphoma</strong><br>
+									<i>Frontiers in Immunology</i>
+									<div class="pub-details">
+										Rong Wei<sup>#</sup>, Bochao Liu<sup>#</sup>, Yun Liu<sup>#</sup>, Wenjing Li, Zhiguo Chen, Jin Lu, <u><strong>Yuxuan Zheng</strong></u>*, Shenmiao Yang*<br>
+										2026 17: 1733718<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1733718/full" target="_blank" class="btn btn-outline-primary btn-sm btn-custom">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1733718/full">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Spatial transcriptomic characteristics of the aging human ovary</strong><br>
-								<i>Aging Cell</i>
-								<div class="pub-details">
-									Meiling Zhang<sup>#,</sup>*, Fanghao Guo<sup>#</sup>, Qing Zhang<sup>#</sup>, Qianhui Hu<sup>#</sup>, Di Sun, Yongjian Ma, Yanquan Li, Mengxi Guo, Haixia Ding, Ying Guo, Baichai Yang, Songmao Li, Ningxia Sun*, <u><strong>Yuxuan Zheng</strong></u>*, Wen Li*<br>
-									2026 25.1: e70288<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Spatial transcriptomic characteristics of the aging human ovary</strong><br>
+									<i>Aging Cell</i>
+									<div class="pub-details">
+										Meiling Zhang<sup>#,</sup>*, Fanghao Guo<sup>#</sup>, Qing Zhang<sup>#</sup>, Qianhui Hu<sup>#</sup>, Di Sun, Yongjian Ma, Yanquan Li, Mengxi Guo, Haixia Ding, Ying Guo, Baichai Yang, Songmao Li, Ningxia Sun*, <u><strong>Yuxuan Zheng</strong></u>*, Wen Li*<br>
+										2026 25.1: e70288<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://onlinelibrary.wiley.com/doi/10.1111/acel.70288?msockid=1f775df4f01c65a039e54b75f1db64b0" target="_blank" class="btn btn-outline-primary btn-sm btn-custom">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://onlinelibrary.wiley.com/doi/10.1111/acel.70288?msockid=1f775df4f01c65a039e54b75f1db64b0">Link to publication</a>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>  
 		</div>
 	</section>
 	
@@ -139,53 +201,63 @@
 					<h2>2025</h2>
 				</div>
 				<div class="col-12 col-md-10">
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Maternal acute SARS-CoV-2 infection impairs preimplantation embryo development and reprograms early offspring hematopoietic system</strong><br>
-								<i>Cell Discovery</i>
-								<div class="pub-details">
-									Meiling Zhang<sup>#,</sup>*, Di Liu<sup>#</sup>, Songmao Li<sup>#</sup>, Jiansheng Liu<sup>#</sup>, Fanghao Guo, Haibin Zhu, Li Zhang, Di Sun, Yu Yan, Yanquan Li, Rui Qiao, Haixia Ding, Qing Zhang, Mengxi Guo, Yongjian Ma, Zhiwei Liu*, Wen Li*, <u><strong>Yuxuan Zheng</strong></u>*<br>
-									2025 11.1: 104<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Maternal acute SARS-CoV-2 infection impairs preimplantation embryo development and reprograms early offspring hematopoietic system</strong><br>
+									<i>Cell Discovery</i>
+									<div class="pub-details">
+										Meiling Zhang<sup>#,</sup>*, Di Liu<sup>#</sup>, Songmao Li<sup>#</sup>, Jiansheng Liu<sup>#</sup>, Fanghao Guo, Haibin Zhu, Li Zhang, Di Sun, Yu Yan, Yanquan Li, Rui Qiao, Haixia Ding, Qing Zhang, Mengxi Guo, Yongjian Ma, Zhiwei Liu*, Wen Li*, <u><strong>Yuxuan Zheng</strong></u>*<br>
+										2025 11.1: 104<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.nature.com/articles/s41421-025-00856-3" target="_blank" class="btn btn-outline-primary btn-sm btn-custom">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.nature.com/articles/s41421-025-00856-3">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Transcriptome landscape of cancer associated fibroblasts in human PDAC</strong><br>
-								<i>Advanced Science</i>
-								<div class="pub-details">
-									Mengyu Tao<sup>#</sup>, Wenting Liu<sup>#</sup>, Jianhua Chen<sup>#</sup>, Rujiao Liu<sup>#</sup>, Jianling Zou, Bo Yu, Chenchen Wang, Mingzhu Huang, Qingjian Chen, Zhe Zhang, Zhiyu Chen, Haoyu Sun, Cheng Zhou*, Shuguang Tan*, <u><strong>Yuxuan Zheng</strong></u>*, Hongxia Wang*<br>
-									2025 12.20: 2415196<br>
-									<li>Frontispiece</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Transcriptome landscape of cancer associated fibroblasts in human PDAC</strong>
+									<i>Advanced Science</i>
+									<div class="pub-details">
+										Mengyu Tao<sup>#</sup>, Wenting Liu<sup>#</sup>, Jianhua Chen<sup>#</sup>, Rujiao Liu<sup>#</sup>, Jianling Zou, Bo Yu, Chenchen Wang, Mingzhu Huang, Qingjian Chen, Zhe Zhang, Zhiyu Chen, Haoyu Sun, Cheng Zhou*, Shuguang Tan*, <u><strong>Yuxuan Zheng</strong></u>*, Hongxia Wang*<br>
+										2025 12.20: 2415196
+										<ul class="pub-details-list">
+											<li>Frontispiece</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202415196#" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
+									<div class="mt-2">
+										<img src="https://pic1.imgdb.cn/item/683917a558cb8da5c81bb59f.jpg" class="img-fluid rounded border" width="180">
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202415196#">Link to publication</a>
-							<img src="https://pic1.imgdb.cn/item/683917a558cb8da5c81bb59f.jpg" width="180">
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Single-cell multi-omics analysis revealing immune features of inactivated COVID-19 vaccination in systemic lupus erythematosus patients</strong><br>
-								<i>Science Bulletin</i>
-								<div class="pub-details">
-									<u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Siyuan Wang<sup>#</sup>, Xingyu Zhou<sup>#</sup>, Shitong Qiao<sup>#</sup>, Xin Zhao, Yuan Chen, Zijun Li, Zhanguo Li, Xiaolin Sun*, Shuguang Tan*, Jing He*, George Fu Gao*<br>
-									2025 70.1: 42-46<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Single-cell multi-omics analysis revealing immune features of inactivated COVID-19 vaccination in systemic lupus erythematosus patients</strong><br>
+									<i>Science Bulletin</i>
+									<div class="pub-details">
+										<u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Siyuan Wang<sup>#</sup>, Xingyu Zhou<sup>#</sup>, Shitong Qiao<sup>#</sup>, Xin Zhao, Yuan Chen, Zijun Li, Zhanguo Li, Xiaolin Sun*, Shuguang Tan*, Jing He*, George Fu Gao*<br>
+										2025 70.1: 42-46<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.sciencedirect.com/science/article/abs/pii/S2095927324003888" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.sciencedirect.com/science/article/abs/pii/S2095927324003888">Link to publication</a>
 						</div>
 					</div>
 				</div>
@@ -200,35 +272,39 @@
 					<h2>2024</h2>
 				</div>
 				<div class="col-12 col-md-10">
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Mosaic RBD nanoparticle elicits immunodominant antibody responses across sarbecoviruses</strong><br>
-								<i>Cell Reports</i>
-								<div class="pub-details">
-									Chuanyu Liu<sup>#</sup>, Senyu Xu<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Yufeng Xie, Kun Xu, Yan Chai, Tingrong Luo, Lianpan Dai*, George Fu Gao*<br>
-									2024 43.5: 114235<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Mosaic RBD nanoparticle elicits immunodominant antibody responses across sarbecoviruses</strong><br>
+									<i>Cell Reports</i>
+									<div class="pub-details">
+										Chuanyu Liu<sup>#</sup>, Senyu Xu<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Yufeng Xie, Kun Xu, Yan Chai, Tingrong Luo, Lianpan Dai*, George Fu Gao*<br>
+										2024 43.5: 114235<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">           
+									<a href="https://www.cell.com/cell-reports/fulltext/S2211-1247(24)00563-1" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.cell.com/cell-reports/fulltext/S2211-1247(24)00563-1">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Increased antibody titers but induced T-cell AICD and apoptosis response in COVID-19 convalescents by inactivated vaccine booster</strong><br>
-								<i>Microbiology Spectrum</i>
-								<div class="pub-details">
-									Jingmin Zhao<sup>#,</sup>*, Han Zhang<sup>#</sup>, Lina Jiang<sup>#</sup>, Fang Cheng#, Wei Li, Zihao Wang, Hongyang Liu, Shaohua Li, Yiyun Jiang, Meiling Li, Yan Li, Shuhong Liu, Min Fang, Xuyu Zhou, Xin Ye, Shousong Zhao*, <u><strong>Yuxuan Zheng</strong></u>*, Songdong Meng*<br>
-									2024 12.3: e0243523<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Increased antibody titers but induced T-cell AICD and apoptosis response in COVID-19 convalescents by inactivated vaccine booster</strong><br>
+									<i>Microbiology Spectrum</i>
+									<div class="pub-details">
+										Jingmin Zhao<sup>#,</sup>*, Han Zhang<sup>#</sup>, Lina Jiang<sup>#</sup>, Fang Cheng#, Wei Li, Zihao Wang, Hongyang Liu, Shaohua Li, Yiyun Jiang, Meiling Li, Yan Li, Shuhong Liu, Min Fang, Xuyu Zhou, Xin Ye, Shousong Zhao*, <u><strong>Yuxuan Zheng</strong></u>*, Songdong Meng*<br>
+										2024 12.3: e0243523<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">            
+									<a href="https://journals.asm.org/doi/full/10.1128/spectrum.02435-23" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://journals.asm.org/doi/full/10.1128/spectrum.02435-23">Link to publication</a>
 						</div>
 					</div>
 				</div>
@@ -243,245 +319,285 @@
 					<h2>2023 AND BEFORE</h2>
 				</div>
 				<div class="col-12 col-md-10">
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>[Research Comments] Geneformer: a deep learning model for exploring gene networks</strong><br>
-								<i>Science China Life Sciences</i>
-								<div class="pub-details">
-									<u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, George Fu Gao*<br>
-									2023 66.12: 2952-2954<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>[Research Comments] Geneformer: a deep learning model for exploring gene networks</strong><br>
+									<i>Science China Life Sciences</i>
+									<div class="pub-details">
+										<u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, George Fu Gao*<br>
+										2023 66.12: 2952-2954<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.sciengine.com/SCLS/doi/10.1007/s11427-023-2431-x;JSESSIONID=cf97e82b-002e-43b9-aaf7-82e5191852c4" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.sciengine.com/SCLS/doi/10.1007/s11427-023-2431-x;JSESSIONID=cf97e82b-002e-43b9-aaf7-82e5191852c4">Link to publication</a>
 						</div>
 					</div>
 
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Dosing interval regimen shapes potency and breadth of antibody repertoire after vaccination of SARS-CoV-2 RBD protein subunit vaccine</strong><br>
-								<i>Cell Discovery</i>
-								<div class="pub-details">
-									Shuxin Guo<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Zhengrong Gao<sup>#</sup>, Minrun Duan<sup>#</sup>, Sheng Liu, Pan Du, XiaoYu Xu, Kun Xu, Xin Zhao, Yan Chai, Peiyi Wang, Qi Zhao, George Fu Gao*, Lianpan Dai*<br>
-									2023 9.1: 79<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Dosing interval regimen shapes potency and breadth of antibody repertoire after vaccination of SARS-CoV-2 RBD protein subunit vaccine</strong><br>
+									<i>Cell Discovery</i>
+									<div class="pub-details">
+										Shuxin Guo<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Zhengrong Gao<sup>#</sup>, Minrun Duan<sup>#</sup>, Sheng Liu, Pan Du, XiaoYu Xu, Kun Xu, Xin Zhao, Yan Chai, Peiyi Wang, Qi Zhao, George Fu Gao*, Lianpan Dai*<br>
+										2023 9.1: 79<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">              
+									<a href="https://www.nature.com/articles/s41421-023-00585-5" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.nature.com/articles/s41421-023-00585-5">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Transcriptome landscape of African swine fever virus infection in swine macrophages at single-cell resolution</strong><br>
-								<i>Proceedings of the National Academy of the Sciences of the United States of America</i>
-								<div class="pub-details">
-									<u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Su Li<sup>#</sup>, Shi-Hua Li<sup>#</sup>, Shaoxiong Yu<sup>#</sup>, Qihui Wang, Kehui Zhang, Liang Qu, Yuhai Bi*, Fuchou Tang*, Hua-Ji Qiu*, George Fu Gao*<br>
-									2022 119.19: e2201288119<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Transcriptome landscape of African swine fever virus infection in swine macrophages at single-cell resolution</strong><br>
+									<i>Proceedings of the National Academy of the Sciences of the United States of America</i>
+									<div class="pub-details">
+										<u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Su Li<sup>#</sup>, Shi-Hua Li<sup>#</sup>, Shaoxiong Yu<sup>#</sup>, Qihui Wang, Kehui Zhang, Liang Qu, Yuhai Bi*, Fuchou Tang*, Hua-Ji Qiu*, George Fu Gao*<br>
+										2022 119.19: e2201288119<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">            
+									<a href="https://www.pnas.org/doi/10.1073/pnas.2201288119" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.pnas.org/doi/10.1073/pnas.2201288119">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>A genome-wide CRISPR-based screen identifies <i>KAT7</i> as a driver of cellular senescence</strong><br>
-								<i>Science Translational Medicine</i>
-								<div class="pub-details">
-									Wei Wang<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Shuhui Sun<sup>#</sup>, Wei Li<sup>#</sup>, Moshi Song, Qianzhao Ji, Zeming Wu, Zunpeng Liu, Yanling Fan, Feifei Liu, Jingyi Li, Concepcion Rodriguez Esteban, Si Wang, Qi Zhou, Juan Carlos Lzpisua Belmonte, Weiqi Zhang*, Jing Qu*, Fuchou Tang*, Guang-Hui Liu*<br>
-									2021 13.575: eabd2655<br>
-									<li>F1000 Recommended</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>A genome-wide CRISPR-based screen identifies <i>KAT7</i> as a driver of cellular senescence</strong><br>
+									<i>Science Translational Medicine</i>
+									<div class="pub-details">
+										Wei Wang<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Shuhui Sun<sup>#</sup>, Wei Li<sup>#</sup>, Moshi Song, Qianzhao Ji, Zeming Wu, Zunpeng Liu, Yanling Fan, Feifei Liu, Jingyi Li, Concepcion Rodriguez Esteban, Si Wang, Qi Zhou, Juan Carlos Lzpisua Belmonte, Weiqi Zhang*, Jing Qu*, Fuchou Tang*, Guang-Hui Liu*<br>
+										2021 13.575: eabd2655<br>
+										<ul class="pub-details-list">
+											<li>F1000 Recommended</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">          
+									<a href="https://www.science.org/doi/full/10.1126/scitranslmed.abd2655" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.science.org/doi/full/10.1126/scitranslmed.abd2655">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Establishment of bovine expanded potential stem cells</strong><br>
-								<i>Proceedings of the National Academy of the Sciences of the United States of America</i>
-								<div class="pub-details">
-									Lixia Zhao<sup>#</sup>, Xuefei Gao<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Zixin Wang, Gaoping Zhao, Jie Ren, Jia Zhang, Jian Wu, Baojiang Wu, Yanglin Chen, Wei Sun, Yunxia Li, Jie Su, Yulin Ding, Yuan Gao, Moning Liu, Xiaochun Bai, Liangzhong Sun, Guifang Cao, Fuchou Tang, Siqin Bao, Pentao Liu*, Xihe Li*<br>
-									2021 118.15: e2018505118<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Establishment of bovine expanded potential stem cells</strong><br>
+									<i>Proceedings of the National Academy of the Sciences of the United States of America</i>
+									<div class="pub-details">
+										Lixia Zhao<sup>#</sup>, Xuefei Gao<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Zixin Wang, Gaoping Zhao, Jie Ren, Jia Zhang, Jian Wu, Baojiang Wu, Yanglin Chen, Wei Sun, Yunxia Li, Jie Su, Yulin Ding, Yuan Gao, Moning Liu, Xiaochun Bai, Liangzhong Sun, Guifang Cao, Fuchou Tang, Siqin Bao, Pentao Liu*, Xihe Li*<br>
+										2021 118.15: e2018505118<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.pnas.org/doi/full/10.1073/pnas.2018505118" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.pnas.org/doi/full/10.1073/pnas.2018505118">Link to publication</a>
 						</div>
 					</div>
 
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>A single-cell transcriptomic atlas of primate pancreatic islet aging</strong><br>
-								<i>National Science Review</i>
-								<div class="pub-details">
-									Jingyi Li<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Pengze Yan<sup>#</sup>, Moshi Song<sup>#</sup>, Si Wang<sup>#</sup>, Liang Sun, Zunpeng Liu, Shuai Ma, Juan Carlos Lzpisua Belmonte, Piu Chan, Qi Zhou, Weiqi Zhang*, Guang-Hui Liu*, Fuchou Tang*, Jing Qu*<br>
-									2021 8.2: nwaa127<br>
-									<li>One of works awarded as "Top 10 Scientific Advances of 2020 in China (In-depth Analysis of Multi-organ Aging Biomarkers and Intervention Targets)" (see <a href="https://www.most.gov.cn/gnwkjdt/202103/t20210310_173299.html">more</a>)</li>
-									<li>One of works awarded as "Top 10 Progress in China’s Life Sciences in 2020 (Analysis the Regulation and Mechanism of Organ Aging)" (see <a href="http://www.xinhuanet.com/politics/2021-01/14/c_1126980241.htm">more</a>)</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>A single-cell transcriptomic atlas of primate pancreatic islet aging</strong><br>
+									<i>National Science Review</i>
+									<div class="pub-details">
+										Jingyi Li<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Pengze Yan<sup>#</sup>, Moshi Song<sup>#</sup>, Si Wang<sup>#</sup>, Liang Sun, Zunpeng Liu, Shuai Ma, Juan Carlos Lzpisua Belmonte, Piu Chan, Qi Zhou, Weiqi Zhang*, Guang-Hui Liu*, Fuchou Tang*, Jing Qu*<br>
+										2021 8.2: nwaa127<br>
+										<ul class="pub-details-list">
+											<li>One of works awarded as "Top 10 Scientific Advances of 2020 in China (In-depth Analysis of Multi-organ Aging Biomarkers and Intervention Targets)" (see <a href="https://www.most.gov.cn/gnwkjdt/202103/t20210310_173299.html">more</a>)</li>
+											<li>One of works awarded as "Top 10 Progress in China’s Life Sciences in 2020 (Analysis the Regulation and Mechanism of Organ Aging)" (see <a href="http://www.xinhuanet.com/politics/2021-01/14/c_1126980241.htm">more</a>)</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">           
+									<a href="https://academic.oup.com/nsr/article/8/2/nwaa127/5855510?login=true" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://academic.oup.com/nsr/article/8/2/nwaa127/5855510?login=true">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Deciphering primate retinal aging at single-cell resolution</strong><br>
-								<i>Protein & Cell</i>
-								<div class="pub-details">
-									Si Wang<sup>#,</sup>*, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Qingqing Li<sup>#</sup>, Xiaojuan He, Ruotong Ren, Weiqi Zhang, Moshi Song, Huifang Hu, Feifei Liu, Guoqiang Sun, Shuhui Sun, Zunpeng Liu, Yang Yu, Piu Chan, Guo-Guang Zhao, Qi Zhou, Guang-Hui Liu*, Fuchou Tang*, Jing Qu*<br>
-									2021 12.11: 889-898<br>
-									<li>One of works awarded as "Top 10 Scientific Advances of 2020 in China (In-depth Analysis of Multi-organ Aging Biomarkers and Intervention Targets)" (see <a href="https://www.most.gov.cn/gnwkjdt/202103/t20210310_173299.html">more</a>)</li>
-									<li>One of works awarded as "Top 10 Progress in China’s Life Sciences in 2020 (Analysis the Regulation and Mechanism of Organ Aging)" (see <a href="http://www.xinhuanet.com/politics/2021-01/14/c_1126980241.htm">more</a>)</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Deciphering primate retinal aging at single-cell resolution</strong><br>
+									<i>Protein & Cell</i>
+									<div class="pub-details">
+										Si Wang<sup>#,</sup>*, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Qingqing Li<sup>#</sup>, Xiaojuan He, Ruotong Ren, Weiqi Zhang, Moshi Song, Huifang Hu, Feifei Liu, Guoqiang Sun, Shuhui Sun, Zunpeng Liu, Yang Yu, Piu Chan, Guo-Guang Zhao, Qi Zhou, Guang-Hui Liu*, Fuchou Tang*, Jing Qu*<br>
+										2021 12.11: 889-898<br>
+										<ul class="pub-details-list">
+											<li>One of works awarded as "Top 10 Scientific Advances of 2020 in China (In-depth Analysis of Multi-organ Aging Biomarkers and Intervention Targets)" (see <a href="https://www.most.gov.cn/gnwkjdt/202103/t20210310_173299.html">more</a>)</li>
+											<li>One of works awarded as "Top 10 Progress in China’s Life Sciences in 2020 (Analysis the Regulation and Mechanism of Organ Aging)" (see <a href="http://www.xinhuanet.com/politics/2021-01/14/c_1126980241.htm">more</a>)</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://link.springer.com/article/10.1007/s13238-020-00791-x" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://link.springer.com/article/10.1007/s13238-020-00791-x">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Integrated transcriptomics and epigenomics reveal chamber-specific and species-specific characteristics of human and mouse hearts</strong><br>
-								<i>PLoS Biology</i>
-								<div class="pub-details">
-									Junpeng Gao<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Lin Li, Minjie Lu, Xiangjian Chen, Yu Wang, Yanna Li, Xiaomeng Liu, Yun Gao, Yunuo Mao, Peng Zhao, Jinan Zhang, Fuchou Tang, Lei Song*, Lu Wen*, Jizheng Wang*<br>
-									2021 19.5: e3001229<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Integrated transcriptomics and epigenomics reveal chamber-specific and species-specific characteristics of human and mouse hearts</strong><br>
+									<i>PLoS Biology</i>
+									<div class="pub-details">
+										Junpeng Gao<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Lin Li, Minjie Lu, Xiangjian Chen, Yu Wang, Yanna Li, Xiaomeng Liu, Yun Gao, Yunuo Mao, Peng Zhao, Jinan Zhang, Fuchou Tang, Lei Song*, Lu Wen*, Jizheng Wang*<br>
+										2021 19.5: e3001229<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">                
+									<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3001229" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3001229">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Single-cell transcriptomic atlas of primate ovarian aging</strong><br>
-								<i>Cell</i>
-								<div class="pub-details">
-									Si Wang<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Jingyi Li<sup>#</sup>, Yang Yu<sup>#</sup>, Weiqi Zhang<sup>#</sup>, Moshi Song, Zunpeng Liu, Zheying Min, Huifang Hu, Ying Jing, Xiaojuan He, Liang Sun, Lifang Ma, Concepcion Rodriguez Esteban, Piu Chan, Jie Qiao, Qi Zhou, Juan Carlos Lzpisua Belmonte*, Jing Qu*, Fuchou Tang*, Guang-Hui Liu*<br>
-									2020 180.3: 585-600<br>
-									<li>Cover Story</li>
-									<li>F1000 Recommended</li>
-									<li>One of works awarded as "Top 10 Scientific Advances of 2020 in China (In-depth Analysis of Multi-organ Aging Biomarkers and Intervention Targets)" (see <a href="https://www.most.gov.cn/gnwkjdt/202103/t20210310_173299.html">more</a>)</li>
-									<li>One of works awarded as "Top 10 Progress in China’s Life Sciences in 2020 (Analysis the Regulation and Mechanism of Organ Aging)" (see <a href="http://www.xinhuanet.com/politics/2021-01/14/c_1126980241.htm">more</a>)</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Single-cell transcriptomic atlas of primate ovarian aging</strong><br>
+									<i>Cell</i>
+									<div class="pub-details">
+										Si Wang<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Jingyi Li<sup>#</sup>, Yang Yu<sup>#</sup>, Weiqi Zhang<sup>#</sup>, Moshi Song, Zunpeng Liu, Zheying Min, Huifang Hu, Ying Jing, Xiaojuan He, Liang Sun, Lifang Ma, Concepcion Rodriguez Esteban, Piu Chan, Jie Qiao, Qi Zhou, Juan Carlos Lzpisua Belmonte*, Jing Qu*, Fuchou Tang*, Guang-Hui Liu*<br>
+										2020 180.3: 585-600<br>
+										<ul class="pub-details-list">
+											<li>Cover Story</li>
+											<li>F1000 Recommended</li>
+											<li>One of works awarded as "Top 10 Scientific Advances of 2020 in China (In-depth Analysis of Multi-organ Aging Biomarkers and Intervention Targets)" (see <a href="https://www.most.gov.cn/gnwkjdt/202103/t20210310_173299.html">more</a>)</li>
+											<li>One of works awarded as "Top 10 Progress in China’s Life Sciences in 2020 (Analysis the Regulation and Mechanism of Organ Aging)" (see <a href="http://www.xinhuanet.com/politics/2021-01/14/c_1126980241.htm">more</a>)</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.sciencedirect.com/science/article/pii/S0092867420300568" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
+									<img src="https://pic.imgdb.cn/item/651abb94c458853aef14dd52.jpg" width="180">
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.sciencedirect.com/science/article/pii/S0092867420300568">Link to publication</a>
-							<img src="https://pic.imgdb.cn/item/651abb94c458853aef14dd52.jpg" width="180">
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong><i>In vitro</i> expansion of human sperm through nuclear transfer</strong><br>
-								<i>Cell Research</i>
-								<div class="pub-details">
-									Xiaoyu Merlin Zhang<sup>#</sup>, Keliang Wu<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Han Zhao<sup>#</sup>, Junpeng Gao, Zhenzhen Hou, Meiling Zhang, Jiaoyang Liao, Jingye Zhang, Yuan Gao, Yuanyuan Li, Lin Li, Fuchou Tang*, Zi-Jiang Chen*, Jinsong Li*<br>
-									2020 30.4: 356-359<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong><i>In vitro</i> expansion of human sperm through nuclear transfer</strong><br>
+									<i>Cell Research</i>
+									<div class="pub-details">
+										Xiaoyu Merlin Zhang<sup>#</sup>, Keliang Wu<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Han Zhao<sup>#</sup>, Junpeng Gao, Zhenzhen Hou, Meiling Zhang, Jiaoyang Liao, Jingye Zhang, Yuan Gao, Yuanyuan Li, Lin Li, Fuchou Tang*, Zi-Jiang Chen*, Jinsong Li*<br>
+										2020 30.4: 356-359<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.nature.com/articles/s41422-019-0265-1" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.nature.com/articles/s41422-019-0265-1">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Refined spatial temporal epigenomic profiling reveals intrinsic connection between <i>PRDM9</i>-mediated H3K4me3 and the fate of double-stranded breaks</strong><br>
-								<i>Cell Research</i>
-								<div class="pub-details">
-									Yao Chen<sup>#</sup>, Ruitu Lyu<sup>#</sup>, Bowen Rong<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Zhen Lin<sup>#</sup>, Ruofei Dai, Xi Zhang, Nannan Xie, Siqing Wang, Fuchou Tang*, Fei Lan*, Ming-Han Tong*<br>
-									2020 30.3: 256-268<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Refined spatial temporal epigenomic profiling reveals intrinsic connection between <i>PRDM9</i>-mediated H3K4me3 and the fate of double-stranded breaks</strong><br>
+									<i>Cell Research</i>
+									<div class="pub-details">
+										Yao Chen<sup>#</sup>, Ruitu Lyu<sup>#</sup>, Bowen Rong<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Zhen Lin<sup>#</sup>, Ruofei Dai, Xi Zhang, Nannan Xie, Siqing Wang, Fuchou Tang*, Fei Lan*, Ming-Han Tong*<br>
+										2020 30.3: 256-268<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">           
+									<a href="https://www.nature.com/articles/s41422-020-0281-1" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.nature.com/articles/s41422-020-0281-1">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Single-cell RNA-seq analysis reveals the progression of human osteoarthritis</strong><br>
-								<i>Annals of the Rheumatic Diseases</i>
-								<div class="pub-details">
-									Quanbo Ji<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Guoqiang Zhang, Yuqiong Hu, Xiaoying Fan, Yu Hou, Lu Wen, Li Li, Yameng Xu, Yan Wang*, Fuchou Tang*<br>
-									2019 78.1: 100-110<br>
-									<li>F1000 Recommended</li>
-									<li>Awarded as "China Orthopaedical Innovation Transformation Exhibition in 2019"</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Single-cell RNA-seq analysis reveals the progression of human osteoarthritis</strong><br>
+									<i>Annals of the Rheumatic Diseases</i>
+									<div class="pub-details">
+										Quanbo Ji<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Guoqiang Zhang, Yuqiong Hu, Xiaoying Fan, Yu Hou, Lu Wen, Li Li, Yameng Xu, Yan Wang*, Fuchou Tang*<br>
+										2019 78.1: 100-110<br>
+										<ul class="pub-details-list">
+											<li>F1000 Recommended</li>
+											<li>Awarded as "China Orthopaedical Innovation Transformation Exhibition in 2019"</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">           
+									<a href="https://ard.bmj.com/content/78/1/100" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://ard.bmj.com/content/78/1/100">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Single-cell transcriptome analysis maps the developmental track of the human heart</strong><br>
-								<i>Cell Reports</i>
-								<div class="pub-details">
-									Yuli Cui<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Xixi Liu<sup>#</sup>, Liying Yan, Xiaoying Fan, Jun Yong, Yuqiong Hu, Ji Dong, Qingqing Li, Xinglong Wu, Shuai Gao, Jingyun Li, Lu wen, Jie Qiao*, Fuchou Tang*<br>
-									2019 26.7: 1934-1950<br>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Single-cell transcriptome analysis maps the developmental track of the human heart</strong><br>
+									<i>Cell Reports</i>
+									<div class="pub-details">
+										Yuli Cui<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Xixi Liu<sup>#</sup>, Liying Yan, Xiaoying Fan, Jun Yong, Yuqiong Hu, Ji Dong, Qingqing Li, Xinglong Wu, Shuai Gao, Jingyun Li, Lu wen, Jie Qiao*, Fuchou Tang*<br>
+										2019 26.7: 1934-1950<br>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.sciencedirect.com/science/article/pii/S2211124719301081" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.sciencedirect.com/science/article/pii/S2211124719301081">Link to publication</a>
 						</div>
 					</div>
 					
-					<div class="row publication">
-						<div class="col-md-9">
-							<div>
-								<strong>Single-cell RNA-seq uncovers dynamic processes and critical regulators in mouse spermatogenesis</strong><br>
-								<i>Cell Research</i>
-								<div class="pub-details">
-									Yao Chen<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Yun Gao<sup>#</sup>, Zhen Lin<sup>#</sup>, Sunming Yang<sup>#</sup>, Tongtong Wang, Qiu Wang, Nannan Xie, Rong Hua, Mingxi Liu, Jiahao Sha, Michael D Griswold, Jinsong Li*, Fuchou Tang*, Ming-Han Tong*<br>
-									2018 28.9: 879-896<br>
-									<li>Cover Story</li>
-									<li>F1000 Recommended</li>
-									<li>Awarded as "Sanofi-Cell Research Outstanding Paper Award of 2018"</li>
-									<li>Awarded as "Outstanding Science and Technology Papers" (10 papes in the field of Life Sciences and Basic Medicine)</li>
-									<li>Selected as "30th Anniversary Collection: Top Articles from the Past 30 Years"</li>
+					<div class="card pub-card shadow-sm mb-4">
+						<div class="card-body">
+							<div class="row align-items-center">
+								<div class="col-md-9">
+									<strong>Single-cell RNA-seq uncovers dynamic processes and critical regulators in mouse spermatogenesis</strong><br>
+									<i>Cell Research</i>
+									<div class="pub-details">
+										Yao Chen<sup>#</sup>, <u><strong>Yuxuan Zheng</strong></u><sup>#</sup>, Yun Gao<sup>#</sup>, Zhen Lin<sup>#</sup>, Sunming Yang<sup>#</sup>, Tongtong Wang, Qiu Wang, Nannan Xie, Rong Hua, Mingxi Liu, Jiahao Sha, Michael D Griswold, Jinsong Li*, Fuchou Tang*, Ming-Han Tong*<br>
+										2018 28.9: 879-896<br>
+										<ul class="pub-details-list">
+											<li>Cover Story</li>
+											<li>F1000 Recommended</li>
+											<li>Awarded as "Sanofi-Cell Research Outstanding Paper Award of 2018"</li>
+											<li>Awarded as "Outstanding Science and Technology Papers" (10 papes in the field of Life Sciences and Basic Medicine)</li>
+											<li>Selected as "30th Anniversary Collection: Top Articles from the Past 30 Years"</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 text-md-right text-left mt-3 mt-md-0">
+									<a href="https://www.nature.com/articles/s41422-018-0074-y" target="_blank" class="btn btn-outline-primary btn-sm btn-custom mb-2">Link to publication</a>
+									<img src="https://pic.imgdb.cn/item/651abb94c458853aef14dd43.png" width="180">
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3">              
-							<a href="https://www.nature.com/articles/s41422-018-0074-y">Link to publication</a>
-							<img src="https://pic.imgdb.cn/item/651abb94c458853aef14dd43.png" width="180">
 						</div>
 					</div>
 				</div>
