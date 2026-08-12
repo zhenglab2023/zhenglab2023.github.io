@@ -24,6 +24,13 @@
 	<script src="js/obfuscator.js"></script>
 	
 	<style>
+		html {
+				scroll-behavior: smooth;
+			}
+		section[id] {
+				scroll-margin-top: 100px; 
+			}
+			
 		.tool-card {
 			transition: transform 0.3s ease, box-shadow 0.3s ease;
 			border-radius: 12px;
@@ -58,6 +65,10 @@
 			max-height: 40px;
 			width: auto;
 		}
+		
+		.card-title {
+			text-transform: none !important;
+		}
 	</style>
 </head>
 
@@ -81,8 +92,15 @@
 						<li class="nav-item">
 							<a class="nav-link" href="publication.html">Publication</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link active" href="/">Resource</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link active dropdown-toggle" href="#" id="resourceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Resource
+							</a>
+                            <div class="dropdown-menu shadow border-0" aria-labelledby="resourceDropdown" style="border-radius: 8px;">
+                                <a class="dropdown-item" href="#section-dataset">Dataset</a>
+                                <a class="dropdown-item" href="#section-tool">Tool & Algorithm</a>
+                                <a class="dropdown-item" href="#section-toolkit">Toolkit</a>
+                            </div>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="course.html">Course</a>
@@ -108,8 +126,215 @@
 		</div>
 	</section>
 	
-	<section>
-		<div class="container section">
+	
+	<section id="section-dataset">
+        <div class="container section mb-5">
+			<h1>Dataset</h1>
+			<hr class="mb-5">
+			
+			<div class="row">
+                <div class="col-12">
+                    <div class="card tool-card shadow-sm mb-4">
+                        <div class="card-body" style="padding: 2rem;">
+                            <h4 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">
+                                Human ovaries from different age groups
+                            </h4>
+                            
+                            <div class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                                <strong>Author(s):</strong> Meiling Zhang, Fanghao Guo, Qing Zhang, Qianhui Hu, Di Sun, Yongjian Ma, Yanquan Li, Mengxi Guo, Haixia Ding, Ying Guo, Baichai Yang, Songmao Li, Ningxia Sun, Yuxuan Zheng, Wen Li<br>
+								<br><strong>Description:</strong> 
+                                <span class="desc-preview">
+                                    Ovarian aging is a complex process that compromises fertility and elevates the risk of reproductive disorders. To elucidate its spatiotemporal dynamics, we integrated single-nucleus RNA sequencing and spatial transcriptomics to construct a...
+                                </span>
+                                <span class="desc-full" style="display: none;">
+                                    Ovarian aging is a complex process that compromises fertility and elevates the risk of reproductive disorders. To elucidate its spatiotemporal dynamics, we integrated single-nucleus RNA sequencing and spatial transcriptomics to construct a comprehensive aging atlas of 12 human ovarian tissues spanning ages 12–54 (prepubertal, age 12, n = 1; young, ages 23–29, n = 4; middle-aged, ages 32–34, n = 2; and older-aged, ages 42–54, n = 5). Our analysis revealed aging-related transcriptomic shifts, including impaired mitochondrial oxidative phosphorylation and reproductive structure development in aged human ovaries. We identified a novel endothelial cell (EDC) subtype, CLDN5+ blood EDCs, which exhibited unique functional specialization as semiprofessional antigen-presenting cells. In contrast to other cell types that lost cell identity during aging, CLDN5+ blood EDCs displayed transcriptomic sensitivity to aging, characterized by enhanced antigen-presenting capabilities, and heightened inflammatory activity. Spatial mapping further uncovered immunoglobulin-expressing (IGHG1+/IGKC+) cell accumulation in the ovarian periphery, correlating with advancing age. Critically, aging disrupted global cellular connectivity while amplifying the DLK1:NOTCH3 axis between theca cells and CLDN5+ blood EDCs, which may contribute to the dysregulation of ovarian functions. We also detected the upregulation of DLK1 in granulosa cells from patients with primary ovarian insufficiency. This study significantly enhances our comprehension of the underlying mechanisms of human ovarian aging and concurrently pinpoints potential therapeutic avenues for addressing related disorders.
+                                </span>
+                                <a href="javascript:void(0);" onclick="toggleDescription(this)" class="text-primary font-weight-bold ml-1" style="text-decoration: none;">[Show details]</a>
+                            </div>
+                            
+                            <div class="data-content-section mb-4">
+                                <div style="color: #444; font-size: 1rem; line-height: 1.6;">
+                                    <strong>Data Content:</strong>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm text-center align-middle" style="font-size: 0.9rem;">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>Sample</th>
+                                                <th>Time point</th>
+                                                <th>Data type</th>
+                                                <th>Raw data</th>
+                                                <th>Processed data</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Human ovary</td>
+                                                <td>Age 12/32/34/42</td>
+                                                <td>snRNA-seq (10X Genomics, v3)</td>
+                                                <td>No available</td>
+                                                <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267315" target="_blank" class="text-primary">Download</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Human ovary</td>
+                                                <td>Age 12/32/34/42</td>
+                                                <td>Spatial-seq (scStereo-seq)</td>
+                                                <td>No available</td>
+                                                <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267315" target="_blank" class="text-primary">Download</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="citation-box p-3 mb-4 bg-light" style="border-left: 4px solid #2b5797; border-radius: 4px; font-size: 1rem;">
+                                <strong style="color: #2b5797;">Citation:</strong> 
+                                <span style="font-style: italic; color: #555;">
+                                    Spatial transcriptomic characteristics of the aging human ovary. Aging Cell, 2026 25.1: e70288.
+                                </span>
+                            </div>
+                         
+                            <a href="https://onlinelibrary.wiley.com/doi/10.1111/acel.70288?msockid=1f775df4f01c65a039e54b75f1db64b0" target="_blank" class="btn btn-outline-primary btn-custom mb-2">
+                                Read paper &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-12">
+                    <div class="card tool-card shadow-sm mb-4">
+                        <div class="card-body" style="padding: 2rem;">
+                            <h4 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">
+                                Human preimplantation embryoes and hematopoietic cells derived from umbilical cord blood
+                            </h4>
+                            
+                            <div class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                                <strong>Author(s):</strong> Meiling Zhang, Di Liu, Songmao Li, Jiansheng Liu, Fanghao Guo, Haibin Zhu, Li Zhang, Di Sun, Yu Yan, Yanquan Li, Rui Qiao, Haixia Ding, Qing Zhang, Mengxi Guo, Yongjian Ma, Zhiwei Liu, Wen Li, Yuxuan Zheng<br>
+								<br><strong>Description:</strong> 
+                                <span class="desc-preview">
+                                    SARS-CoV-2 infection has raised significant concerns regarding its impact on assisted reproductive technology. We found that oocyte retrieval during acute SARS-CoV-2 infection significantly reduced the rates of good-quality blastocyst...
+                                </span>
+                                <span class="desc-full" style="display: none;">
+                                    SARS-CoV-2 infection has raised significant concerns regarding its impact on assisted reproductive technology. We found that oocyte retrieval during acute SARS-CoV-2 infection significantly reduced the rates of good-quality blastocyst formation, but the underlying molecular mechanisms remain poorly understood. To address this, we investigated the effects of maternal acute SARS-CoV-2 infection on preimplantation embryo development and the early offspring hematopoietic system. Using single-cell RNA sequencing (scRNA-seq), we identified developmental delays in morphologically normal blastocysts from infected mothers, characterized by prolonged expression of zygotic genome activation-related genes, downregulation of mTORC1 signaling, and altered energy metabolism, including suppressed oxidative phosphorylation (OXPHOS) and enhanced glycolysis. We further revealed that maternal acute infection induced abnormal methylation/demethylation patterns in preimplantation embryos. To assess the potential long-term impact on offspring, we conducted integrated multi-tissue analyses, including bulk RNA-seq and genome-wide DNA methylation profiling of placental tissues, along with scRNA-seq of umbilical cord blood (UCB) cells from neonates delivered by SARS-CoV-2-infected mothers. Neonates exhibited elevated levels of inflammatory cytokines and an increased abundance of monocytes, indicating an activated myelopoiesis response. In addition, hematopoietic stem and progenitor cells (HSPCs) from UCB showed reduced OXPHOS activity and a skewed differentiation bias toward the myeloid lineage, potentially impacting long-term immune function. Collectively, these findings reveal that maternal acute SARS-CoV-2 infection impairs preimplantation embryo development and leaves a lasting imprint on offspring hematopoietic health through dysregulated energy metabolism, epigenetic modifications, and altered immune responses.
+                                </span>
+                                <a href="javascript:void(0);" onclick="toggleDescription(this)" class="text-primary font-weight-bold ml-1" style="text-decoration: none;">[Show details]</a>
+                            </div>
+                            
+                            <div class="data-content-section mb-4">
+                                <div style="color: #444; font-size: 1rem; line-height: 1.6;">
+                                    <strong>Data Content:</strong>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm text-center align-middle" style="font-size: 0.9rem;">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>Sample</th>
+                                                <th>Time point</th>
+                                                <th>Data type</th>
+                                                <th>Raw data</th>
+                                                <th>Processed data</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Human preimplantation embryo</td>
+                                                <td>Blastocyst</td>
+                                                <td>scRNA-seq (STRT)</td>
+                                                <td><a href="https://ngdc.cncb.ac.cn/gsa-human/browse/HRA010475" target="_blank" class="text-primary">Download</a></td>
+                                                <td><a href="resource/dataset/CD_2025/data_merge.rds" target="_blank" class="text-primary">Download</a></td>
+                                            </tr>
+											<tr>
+                                                <td>Human preimplantation embryo</td>
+                                                <td>Blastocyst</td>
+                                                <td>scDNAme-seq (PBAT)</td>
+                                                <td><a href="https://ngdc.cncb.ac.cn/gsa-human/browse/HRA010475" target="_blank" class="text-primary">Download</a></td>
+                                                <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289648" target="_blank" class="text-primary">Download</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Human hematopoietic cell</td>
+                                                <td>Newborn</td>
+                                                <td>scRNA-seq (10X Genomics, v3)</td>
+                                                <td><a href="https://ngdc.cncb.ac.cn/gsa-human/browse/HRA010475" target="_blank" class="text-primary">Download</a></td>
+                                                <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289648" target="_blank" class="text-primary">Download</a></td>
+                                            </tr>
+											<tr>
+                                                <td>Human placental tissue</td>
+                                                <td>Newborn</td>
+                                                <td>RNA-seq (bulk)</td>
+                                                <td><a href="https://ngdc.cncb.ac.cn/gsa-human/browse/HRA010475" target="_blank" class="text-primary">Download</a></td>
+                                                <td><a href="resource/dataset/CD_2025/merge.dexseq_clean.gene.xls" target="_blank" class="text-primary">Download (count)</a><br><a href="resource/dataset/CD_2025/merge.dexseq_clean.RPKM.xls" target="_blank" class="text-primary">Download (RPKM)</a></td>
+                                            </tr>
+											<tr>
+                                                <td>Human placental tissue</td>
+                                                <td>Newborn</td>
+                                                <td>DNAme-seq (bulk)</td>
+                                                <td><a href="https://ngdc.cncb.ac.cn/gsa-human/browse/HRA010475" target="_blank" class="text-primary">Download</a></td>
+                                                <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289648" target="_blank" class="text-primary">Download</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="citation-box p-3 mb-4 bg-light" style="border-left: 4px solid #2b5797; border-radius: 4px; font-size: 1rem;">
+                                <strong style="color: #2b5797;">Citation:</strong> 
+                                <span style="font-style: italic; color: #555;">
+                                    Maternal acute SARS-CoV-2 infection impairs preimplantation embryo development and reprograms early offspring hematopoietic system. Cell Discovery, 2025 11.1: 104.
+                                </span>
+                            </div>
+                         
+                            <a href="https://www.nature.com/articles/s41421-025-00856-3" target="_blank" class="btn btn-outline-primary btn-custom mb-2">
+                                Read paper &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+		</div>
+	</section>
+	
+	<section id="section-tool">
+        <div class="container section mb-5">
+			<h1>Tool & Algorithm</h1>
+			<hr class="mb-5">
+			
+			<div class="row">
+				<div class="col-12">
+					<div class="card tool-card shadow-sm mb-4">
+						<div class="card-body" style="padding: 2rem;">
+							<h4 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">
+								Tool Title
+							</h4>
+							<p class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+								<strong>Author(s):</strong> Author names<br>
+								<strong>Description:</strong> Description
+							</p>
+							<div class="citation-box p-3 mb-4 bg-light" style="border-left: 4px solid #2b5797; border-radius: 4px; font-size: 1rem;">
+								<strong style="color: #2b5797;">Citation:</strong> 
+								<span style="font-style: italic; color: #555;">
+									Title of the Paper.
+								</span>
+							</div>
+							
+							<a href="[替换为你的数据集链接]" target="_blank" class="btn btn-outline-primary btn-custom">
+								Launch tool &rarr;
+							</a>
+							
+							<a href="[替换为你的数据集链接]" target="_blank" class="btn btn-outline-primary btn-custom">
+								Read paper &rarr;
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="section-toolkit">
+        <div class="container section mb-5">
 			<h1>Toolkit</h1>
 			<hr class="mb-5">
 			
@@ -119,16 +344,19 @@
 						<div class="col-md-8">
 							<div class="card tool-card shadow-sm mb-4">
 								<div class="card-body" style="padding: 1.5rem;">
-									<h4 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">Statistical Calculator</h4>
-									<p class="card-text" style="color: #555; font-size: 0.95rem; margin-bottom: 20px;">
-										Developed by Haibin Zhu. <br>
-										This web-based mini-tool is developed for calculating the statistical significance between two groups using distinct statistical methods.
+									<h4 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif; ">
+										Statistical Calculator
+									</h4>
+									<p class="card-text" style="color: #555; font-size: 1rem; margin-bottom: 20px;">
+										<strong>Author(s):</strong> Haibin Zhu. <br>
+										<strong>Description:</strong> This web-based mini-tool is developed for calculating the statistical significance between two groups using distinct statistical methods.
 									</p>
 									<a href="resource/toolkit/statistical_calculator.html" target="_blank" class="btn btn-outline-primary btn-custom">
-										Launch Tool &rarr;
+										Launch tool &rarr;
 									</a>
 								</div>
 							</div>
+						
 						</div>
 					</div>
 				</div>
@@ -148,4 +376,24 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+    function toggleDescription(btn) {
+        var parent = btn.parentElement;
+        // 找到 preview 和 full text 的 span
+        var preview = parent.querySelector('.desc-preview');
+        var full = parent.querySelector('.desc-full');
+        
+        // 切换显示状态
+        if (full.style.display === 'none') {
+            full.style.display = 'inline';
+            preview.style.display = 'none';
+            btn.innerText = '[Hide details]';
+        } else {
+            full.style.display = 'none';
+            preview.style.display = 'inline';
+            btn.innerText = '[Show details]';
+        }
+    }
+</script>
 </html>
