@@ -24,6 +24,20 @@
 	<script src="js/obfuscator.js"></script>
 	
 	<style>
+		html {
+            scroll-behavior: smooth;
+        }
+        
+		.tool-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 12px;
+			border: 1px solid #eaeaea;
+		}
+		.tool-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+		}
+		
 		.sticky-glass-nav {
 			position: sticky;
 			top: 0;
@@ -41,6 +55,30 @@
 		.navbar-brand img {
 			max-height: 40px;
 			width: auto;
+		}
+
+        .course-badge {
+            background-color: #e2f0ff;
+            color: #2b5797;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .topic-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2b5797;
+            padding: 1.5rem;
+            border-radius: 4px;
+            height: 100%;
+        }
+		
+		.card-title {
+			text-transform: none !important;
 		}
 	</style>
 </head>
@@ -84,17 +122,76 @@
 		<div class="container section">
 			<div class="row">
 				<div class="col col-md-6">
-					<h1>COURSE</h1>
+					<h1>TEACHING & COURSES</h1>
 					<p></p>
-					<div class="row">
-						<div class="col">
-							<h4>Coming soon...</h4>
-						</div>
-					</div>
+					<p>Empowering the next generation of researchers with cutting-edge knowledge in developmental biology and epigenetics.</p>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+	
+	<section class="mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card tool-card shadow-sm mb-4">
+                        <div class="card-body" style="padding: 2.5rem;">
+                            <h2 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">
+                                Developmental Epigenetics: Cell Fate and Organogenesis (Code: BIOL40017)
+                            </h2>
+                            
+                            <div class="mb-4">
+                                <span class="course-badge">👨‍🏫 Instructor: Yuxuan Zheng</span>
+                                <span class="course-badge">📅 Term: Spring Semester (2026-2027)</span>
+                                <span class="course-badge">🎓 Credits: 2</span>
+                                <span class="course-badge">🎯 Audience: Graduate Students in Biology</span>
+                            </div>
+                            
+                            
+							<div class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+								<strong>Course overview</strong><br>
+								This course explores how life evolves from single-cell fate decisions to highly complex macroscopic physiological systems. It focuses on the multi-dimensional epigenetic regulatory networks during embryo implantation, morphogenesis, and the construction of tissue-specific microenvironments (such as the fetal liver hematopoietic stem cell niche). Bridging molecular, cellular, and organ scales, the course also highlights cutting-edge technologies including single-cell multi-omics, and gene editing.
+							</div>
+                            
+							<div class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 0.5rem; line-height: 1.6;">
+								<strong>Key topics covered</strong><br>
+							</div>
+							
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="topic-box">
+                                        <p style="font-size: 0.95rem; color: #555; margin-bottom: 0;"><strong>🧬 1. Decoding life</strong><br>
+                                        Dynamic assembly of DNA methylation and histone codes, 3D genome organization, and non-coding RNA networks in early development.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="topic-box">
+                                        <p style="font-size: 0.95rem; color: #555; margin-bottom: 0;"><strong>🛤️ 2. Cell fate decisions</strong><br>
+                                        Global epigenetic reprogramming, maintenance of pluripotency, asymmetric division, and epigenetic memory in classical developmental signaling pathways.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="topic-box">
+                                        <p style="font-size: 0.95rem; color: #555; margin-bottom: 0;"><strong>🫀 3. Organogenesis & microenvironment</strong><br>
+                                        Epigenetic interactions at the maternal-fetal interface, fetal liver hematopoietic niches, spatiotemporal regulation in neural development, and mechano-epigenetic coupling.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="topic-box">
+                                        <p style="font-size: 0.95rem; color: #555; margin-bottom: 0;"><strong>💉 4. Frontier medical interventions</strong><br>
+                                        Developmental origins of disease, transgenerational inheritance, and advanced therapies for developmental defects.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 <footer>
@@ -108,4 +205,22 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+    function toggleDescription(btn) {
+        var parent = btn.parentElement;
+        var preview = parent.querySelector('.desc-preview');
+        var full = parent.querySelector('.desc-full');
+        
+        if (full.style.display === 'none') {
+            full.style.display = 'inline';
+            preview.style.display = 'none';
+            btn.innerText = '[Hide details]';
+        } else {
+            full.style.display = 'none';
+            preview.style.display = 'inline';
+            btn.innerText = '[Show details]';
+        }
+    }
+</script>
 </html>
