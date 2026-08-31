@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab:300|Roboto:500" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Exo:300,400" rel="stylesheet">
@@ -71,10 +72,19 @@
 			max-height: 40px;
 			width: auto;
 		}
+		
 	</style>
 </head>
 
 <body>
+	<div class="dna-bg">
+        <div class="helix-wrapper" style="left:15%;--s:0.8;animation-duration:125s;animation-delay:-2s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:80%;--s:2.0;animation-duration:150s;animation-delay:-15s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:50%;--s:1.5;animation-duration:200s;animation-delay:-10s;"><div class="helix-inner" style="filter:blur(6px);opacity:0.3;"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:5%;--s:0.5;animation-duration:100s;animation-delay:-18s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:90%;--s:0.6;animation-duration:110s;animation-delay:-7s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+    </div>
+	
 	<div class="sticky-glass-nav">
 		<div class="container">
 			<nav class="navbar navbar-expand-md navbar-light">  
@@ -216,7 +226,7 @@
 					<a class="member-toggle-btn" data-toggle="collapse" href="#desc2" role="button" aria-expanded="false" aria-controls="desc2">Show details</a>
 					<div class="collapse" id="desc2">
 						<div class="member-card-box">
-							<div class="member-desc">I am a PhD student at Fudan University. I completed my Master’s degree at the State Key Laboratory of Reproductive Medicine and Offspring Health, Nanjing Medical University. My research focuses on how reproductive disorders affect offspring development, using wet-lab experiments and single-cell multi-omics technologies to uncover the mechanisms of early embryonic development. Beyond academics, I express my creativity through singing and photography, and find unexpected beauty in daily life through city walks.</div>
+							<div class="member-desc">I am a PhD candidate at Fudan University. I completed my Master’s degree at the State Key Laboratory of Reproductive Medicine and Offspring Health, Nanjing Medical University. My research focuses on how reproductive disorders affect offspring development, using wet-lab experiments and single-cell multi-omics technologies to uncover the mechanisms of early embryonic development. Beyond academics, I express my creativity through singing and photography, and find unexpected beauty in daily life through city walks.</div>
 						</div>
 					</div>
 				</div>
@@ -328,6 +338,31 @@
 			<hr class="mb-5">
 		</div>
 	</section>
+	
+	<script>
+        (function() {
+            'use strict';
+
+            // DNA background
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll('.dna-3d').forEach(container => {
+                    for (let i = 0; i < 60; i++) {
+                        const hue = (i * 12) % 360;
+                        const top = -360 + (i * 12);
+                        const rung = document.createElement('div');
+                        rung.className = 'rung';
+                        rung.style.setProperty('--i', i);
+                        rung.style.setProperty('--hue', hue);
+                        rung.style.top = top + 'px';
+                        rung.innerHTML =
+                            `<div class="line"></div><div class="dot dot-left"></div><div class="dot dot-right"></div>`;
+                        container.appendChild(rung);
+                    }
+                });
+            });
+
+        })();
+    </script>
 </body>
 
 <footer>
