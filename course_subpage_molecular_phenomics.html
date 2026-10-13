@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Zheng Lab • Course</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab:300|Roboto:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Exo:300,400" rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="image/logo-lab-coin.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#ffffff">
+
+	<script src="js/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/obfuscator.js"></script>
+	
+	<style>
+		html {
+            scroll-behavior: smooth;
+        }
+        
+		.tool-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 12px;
+			border: 1px solid #eaeaea;
+		}
+		.tool-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+		}
+		
+		.sticky-glass-nav {
+			position: sticky;
+			top: 0;
+			z-index: 1030;
+			background-color: rgba(226, 240, 255, 0.6);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px); 
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+		}
+		
+		.sticky-glass-nav .navbar {
+			padding-top: 20px; 
+			padding-bottom: 20px;
+		}
+		.navbar-brand img {
+			max-height: 40px;
+			width: auto;
+		}
+
+        .course-badge {
+            background-color: #e2f0ff;
+            color: #2b5797;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .topic-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2b5797;
+            padding: 1.5rem;
+            border-radius: 4px;
+            height: 100%;
+        }
+		
+		.card-title {
+			text-transform: none !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="dna-bg">
+        <div class="helix-wrapper" style="left:15%;--s:0.8;animation-duration:125s;animation-delay:-2s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:80%;--s:2.0;animation-duration:150s;animation-delay:-15s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:50%;--s:1.5;animation-duration:200s;animation-delay:-10s;"><div class="helix-inner" style="filter:blur(6px);opacity:0.3;"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:5%;--s:0.5;animation-duration:100s;animation-delay:-18s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+        <div class="helix-wrapper" style="left:90%;--s:0.6;animation-duration:110s;animation-delay:-7s;"><div class="helix-inner"><div class="dna-3d"></div></div></div>
+    </div>
+	
+	<div class="sticky-glass-nav">
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light">  
+				<a class="navbar-brand" href="/"><img src="https://pic.imgdb.cn/item/6522acb2c458853aeff9fca0.png"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="member.html">Member</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="publication.html">Publication</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="resource.html">Resource</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="course.html">Course</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	
+	<section>
+		<div class="container section">
+			<div class="row">
+				<div class="col col-md-6">
+					<h1>COURSE METERIAL</h1>
+					<p></p>
+					<p>Molecular Phenomics: Experimental Principles and Data Analysis (BIOL60001)</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section class="mb-5">
+        <div class="container">
+            <div class="row">
+				<div class="col-12">
+					<div class="card tool-card shadow-sm mb-4">
+						<div class="card-body" style="padding: 2.5rem;">
+							<h2 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">
+								Reading material
+							</h2>
+							
+							<div class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+								<strong>Main single-cell RNA-seq technologies</strong><br>
+								<ul>
+									<li>Smart-seq2 for sensitive full-length transcriptome profiling in single cells (<i>Nature Methods</i>, 2013)  <a href="material/course/reading/2013-NM-Smart-seq2 for sensitive full-length transcriptome profiling in single cells.pdf" target="_blank" class="text-primary">>>>Download</a>
+									<li>Full-length RNA-seq from single cells using Smart-seq2 (<i>Nature Protocol</i>, 2014)  <a href="material/course/reading/2014-Nature Protocol-Full-length RNA-seq from single cells using Smart-seq2.pdf" target="_blank" class="text-primary">>>>Download</a>
+									<li>Cell-Droplet barcoding for single-cell transcriptomics applied to embryonic stem cells (<i>Cell</i>, 2015)  <a href="material/course/reading/2015-Cell-Droplet barcoding for single-cell transcriptomics applied to embryonic stem cells.pdf" target="_blank" class="text-primary">>>>Download</a>
+									<li>Highly parallel genome-wide expression profiling of individual cells using nanoliter droplets (<i>Cell</i>, 2015)  <a href="material/course/reading/2015-Cell-Highly parallel genome-wide expression profiling of individual cells using nanoliter droplets.pdf" target="_blank" class="text-primary">>>>Download</a>
+									<li>Comprehensive single-cell transcriptional profiling of a multicellular organism (<i>Science</i>, 2017)  <a href="material/course/reading/2017-Science-Comprehensive single-cell transcriptional profiling of a multicellular organism.pdf" target="_blank" class="text-primary">>>>Download</a>
+									<li>Full-length mRNA-Seq from single-cell levels of RNA and individual circulating tumor cells (<i>Nature Biotechnology</i>, 2021)  <a href="material/course/reading/2021-NBT-Full-length mRNA-Seq from single-cell levels of RNA and individual circulating tumor cells.pdf" target="_blank" class="text-primary">>>>Download</a>
+									<li>Optimized single-nucleus transcriptional profiling by combinatorial indexing (<i>Nature Protocol</i>, 2022)  <a href="material/course/reading/2022-Nature Protocol-Optimized single-nucleus transcriptional profiling by combinatorial indexing.pdf" target="_blank" class="text-primary">>>>Download</a>
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-12">
+					<div class="card tool-card shadow-sm mb-4">
+						<div class="card-body" style="padding: 2.5rem;">
+							<h2 class="card-title" style="color: #2b5797; font-family: 'Roboto', sans-serif;">
+								Practice material
+							</h2>
+							
+							<div class="card-text" style="color: #444; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+								<strong>Seurat (R language) for 10X Genomics scRNA-seq</strong><br>
+								<ul>
+									<li>R code  <a href="material/course/practice/molecular_phenomics/Seurat_PBMC3k_tutorial.R" target="_blank" class="text-primary">>>>Download</a>
+									<li>Dataset  <a href="material/course/practice/molecular_phenomics/pbmc3k_filtered_gene_bc_matrices.tar.gz" target="_blank" class="text-primary">>>>Download</a>
+								</ul>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+
+
+            </div>
+        </div>
+    </section>
+
+	<script>
+        (function() {
+            'use strict';
+
+            // DNA background
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll('.dna-3d').forEach(container => {
+                    for (let i = 0; i < 60; i++) {
+                        const hue = (i * 12) % 360;
+                        const top = -360 + (i * 12);
+                        const rung = document.createElement('div');
+                        rung.className = 'rung';
+                        rung.style.setProperty('--i', i);
+                        rung.style.setProperty('--hue', hue);
+                        rung.style.top = top + 'px';
+                        rung.innerHTML =
+                            `<div class="line"></div><div class="dot dot-left"></div><div class="dot dot-right"></div>`;
+                        container.appendChild(rung);
+                    }
+                });
+            });
+
+        })();
+    </script>
+</body>
+
+<footer>
+	<div class="bottom-bar panel">
+		<div class="row justify-content-center">
+			<div class="footer-bottom-middle">
+				<div class="copyright">
+					Copyright &copy; Zheng Lab
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+    function toggleDescription(btn) {
+        var parent = btn.parentElement;
+        var preview = parent.querySelector('.desc-preview');
+        var full = parent.querySelector('.desc-full');
+        
+        if (full.style.display === 'none') {
+            full.style.display = 'inline';
+            preview.style.display = 'none';
+            btn.innerText = '[Hide details]';
+        } else {
+            full.style.display = 'none';
+            preview.style.display = 'inline';
+            btn.innerText = '[Show details]';
+        }
+    }
+</script>
+</html>
